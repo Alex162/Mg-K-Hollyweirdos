@@ -1,6 +1,7 @@
 .gitignore
 .DS_Store
 
+article/vc.tex
 article/*.pdf
 article/*.synctex.gz
 article/*.aux
