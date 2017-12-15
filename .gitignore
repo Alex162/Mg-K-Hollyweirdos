@@ -1,0 +1,8 @@
+.gitignore
+.DS_Store
+
+article/*.pdf
+article/*.synctex.gz
+article/*.aux
+article/*.log
+article/*.out
