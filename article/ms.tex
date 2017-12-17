@@ -37,28 +37,17 @@
 \usepackage{ae,aecompl}
 
 
-%%%%% AUTHORS - PLACE YOUR OWN PACKAGES HERE %%%%%
 
-% Only include extra packages if you really need them. Common packages are:
 \usepackage{graphicx}	% Including figure files
 \usepackage{amsmath}	% Advanced maths commands
 \usepackage{amssymb}	% Extra maths symbols
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%% AUTHORS - PLACE YOUR OWN COMMANDS HERE %%%%%
-
-% Please keep new commands to a minimum, and use \newcommand not \def to avoid
-% overwriting existing commands. Example:
-%\newcommand{\pcm}{\,cm$^{-2}$}	% per cm-squared
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%
 
 % Title of the paper, and the short title which is used in the headers.
 % Keep the title short and informative.
-\title[Short title, max. 45 characters]{MNRAS \LaTeXe\ template -- title goes here}
+\title[Short title, max. 45 characters]{Mg Depleted and K Enriched Stars from LAMOST Spectral Data}
 
 % The list of authors, and the short list which is used in the headers.
 % If you need two or more lines of authors, add an extra line using \newauthor
@@ -80,7 +69,7 @@ $^{3}$Another Department, Different Institution, Street Address, City Postal Cod
 % Enter the current year, for the copyright statements etc.
 \pubyear{2015}
 
-% Don't change these lines
+
 \begin{document}
 \label{firstpage}
 \pagerange{\pageref{firstpage}--\pageref{lastpage}}
@@ -88,10 +77,7 @@ $^{3}$Another Department, Different Institution, Street Address, City Postal Cod
 
 % Abstract of the paper
 \begin{abstract}
-This is a simple template for authors to write new MNRAS papers.
-The abstract should briefly describe the aims, methods, and main results of the paper.
-It should be a single paragraph not more than 250 words (200 words for Letters).
-No references should appear in the abstract.
+
 \end{abstract}
 
 % Select between one and six entries from the list of approved keywords.
@@ -116,22 +102,18 @@ and describes the problem the authors aim to solve \citep[e.g.][]{Author2012}.
 
 \section{Methods, Observations, Simulations etc.}
 
-Normally the next section describes the techniques the authors used.
-It is frequently split into subsections, such as Section~\ref{sec:maths} below.
+\textit{The Cannon}, a data based spectral model devloped by \cite{ho2017}, was fitted to each star in the spectra based around each star's $T_{eff}$, log(g), [Fe/H] and [$\alpha$/M].
+%Ho2017 says that using Appogee, they found almost 10000 giants which were common between the lamost and apoggeee surveys and used that to fit a predictive model to the lamost giants (450000) to determine the 'Teff, logg, [Fe/H], and [α/M]'.
+This model is treated as representative of the expected spectra for each star.
 
-\subsection{Maths}
-\label{sec:maths} % used for referring to this section from elsewhere
+The residuals were taken of the normalised LAMOST flux data and 
+\textit{The Cannon} according to $residual=data-model$. A positive residual implies a higher normalised flux than expected by the model, while a negative residual implies a lower normalised flux than expected. In turn, at a given spectral line a lower normalised flux is associated with an over-abundance, while a higher normalised flux is associated with a depleted abundance.
 
-Simple mathematics can be inserted into the flow of the text e.g. $2\times3=6$
-or $v=220$\,km\,s$^{-1}$, but more complicated expressions should be entered
-as a numbered equation:
+A Gaussian curve was fitted to the residuals about each spectral line in the Mg triplet (5167 \AA, 5172 \AA, 5184 \AA) as well as the K doublet (7665 \AA, 7699 \AA) to characterise any deviation from the model. The amplitude and amplitude error for this curve was then used as the basis for a data filter designed to produce potential candidate stars with spectra indicative of Mg depletion, as well as K enrichment.
 
-\begin{equation}
-    x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}.
-	\label{eq:quadratic}
-\end{equation}
+Two filters were applied separately, with the candidate pool formed from all unique stars identified in either filter. The first, broader filter required the Mg 5184 line's Gaussian to satisfy $Amp > 0.05$ and $\frac{Amp}{Amp_{err}}>3$, and the K 7665 line to satisfy $Amp < 0.05$ and $\frac{Amp}{Amp_{err}}>3$. The second, more demanding filter was applied to require 2 of the three Mg lines to satisfy $Amp > 0.05$ and $\frac{Amp}{Amp_{err}}>3$, as well as either of the K lines. These filters together produced 280 candidate stars to be vetted manually.
 
-Refer back to them as e.g. equation~(\ref{eq:quadratic}).
+The vetting process was done through visual examination of each case. The minimum criterion for a pass was two out of the three Mg lines to look at least plausibly depleted, and at least one of the K lines to look convincing. The local noisiness of the signal was taken into account when making these determinations. Of the 280 candidates manually vetted, 156 were ultimately determined to be sufficiently strong candidates to make the list, presented in Table [INSERT TABLE REFERENCE HERE].
 
 \subsection{Figures and tables}
 
@@ -141,16 +123,23 @@ worry about the exact layout, which will be handled by the publishers.
 Figures are referred to as e.g. Fig.~\ref{fig:example_figure}, and tables as
 e.g. Table~\ref{tab:example_table}.
 
-% Example figure
+
 \begin{figure}
-	% To include a figure from a file named example.*
-	% Allowable file formats are eps or ps if compiling using latex
-	% or pdf, png, jpg if compiling using pdflatex
-	\includegraphics[width=\columnwidth]{example}
-    \caption{This is an example figure. Captions appear below each figure.
-	Give enough detail for the reader to understand what they're looking at,
-	but leave detailed discussion to the main body of the text.}
-    \label{fig:example_figure}
+	\includegraphics[width=\columnwidth]{m_hhist.png}
+    \caption{Metalicity Histogram}
+    \label{mhist}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=\columnwidth]{teff_logg.png}
+    \caption{Effective temperature, log surface gravity, metalicity}
+    \label{mhist}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=\columnwidth]{galcoord.png}
+    \caption{Galactic coordinates for Mg-K stars and known globular clusters}
+    \label{mhist}
 \end{figure}
 
 % Example table
@@ -188,18 +177,13 @@ Try to keep it short.
 
 % The best way to enter references is to use BibTeX:
 
-%\bibliographystyle{mnras}
-%\bibliography{example} % if your bibtex file is called example.bib
+\bibliographystyle{mnras}
+\bibliography{mgkbib} % if your bibtex file is called example.bib
 
 
 % Alternatively you could enter them by hand, like this:
 % This method is tedious and prone to error if you have lots of references
-\begin{thebibliography}{99}
-\bibitem[\protect\citeauthoryear{Author}{2012}]{Author2012}
-Author A.~N., 2013, Journal of Improbable Astronomy, 1, 1
-\bibitem[\protect\citeauthoryear{Others}{2013}]{Others2013}
-Others S., 2012, Journal of Interesting Stuff, 17, 198
-\end{thebibliography}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
