@@ -38,9 +38,25 @@
 
 
 
-\usepackage{graphicx}	% Including figure files
-\usepackage{amsmath}	% Advanced maths commands
-\usepackage{amssymb}	% Extra maths symbols
+
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+
+\usepackage{color}
+\usepackage{booktabs,chemformula}
+\usepackage[export]{adjustbox}
+
+
+\usepackage{tabularx}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath}
+
+\usepackage{tikz}
+\usepackage{hyperref}
 
 
 %%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%
@@ -102,8 +118,8 @@ and describes the problem the authors aim to solve \citep[e.g.][]{Author2012}.
 
 \section{Methods, Observations, Simulations etc.}
 
-\textit{The Cannon}, a data based spectral model devloped by \cite{ho2017}, was fitted to each star in the spectra based around each star's $T_{eff}$, log(g), [Fe/H] and [$\alpha$/M].
-%Ho2017 says that using Appogee, they found almost 10000 giants which were common between the lamost and apoggeee surveys and used that to fit a predictive model to the lamost giants (450000) to determine the 'Teff, logg, [Fe/H], and [α/M]'.
+\textit{The Cannon}, a data based spectral model devloped by \cite{ho2017} using APOGEE data, was fitted to each star in our 450000 star sample of LAMOST giants.
+%Ho2017 says that using Appogee, they found almost 10000 giants which were common between the lamost and apoggeee surveys and used that to fit a predictive model to to lamost giants (450000) to determine the 'Teff, logg, [Fe/H], and [α/M]'.
 This model is treated as representative of the expected spectra for each star.
 
 The residuals were taken of the normalised LAMOST flux data and 
@@ -124,11 +140,33 @@ Figures are referred to as e.g. Fig.~\ref{fig:example_figure}, and tables as
 e.g. Table~\ref{tab:example_table}.
 
 
+
+
+\begin{figure}
+\centering
+\begin{subfigure}{.5\linewidth}
+  \centering
+  \includegraphics[width=.95\linewidth]{29277_Mg}
+  \caption{Mg}
+  \label{Mgposter}
+\end{subfigure}%       %Note: the % to the left is VERY IMPORTANT.
+
+\begin{subfigure}{.5\linewidth}
+  \centering
+  \includegraphics[width=.95\linewidth]{29277_K}
+  \caption{K}
+  \label{Kposter}
+\end{subfigure}
+\caption{}
+\label{posterchildren}
+\end{figure} 
+
 \begin{figure}
 	\includegraphics[width=\columnwidth]{m_hhist.png}
     \caption{Metalicity Histogram}
     \label{mhist}
 \end{figure}
+
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{teff_logg.png}
