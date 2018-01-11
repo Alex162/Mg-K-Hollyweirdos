@@ -7,4 +7,11 @@ Authors
 -------
 
 - Alex Kemp (Monash)
+- Andrew R. Casey (Monash)
+- Matthew Miles? (Monash)
+- Brodie Norfolk? (Monash)
+- Amanda Karakas? (Monash)
+- John Lattanzio? (Monash)
+- Kevin Schlaufman? (JHU)
+- Anna Ho? (Caltech)
 - *et al?*
