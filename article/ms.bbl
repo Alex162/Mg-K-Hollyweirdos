@@ -26,11 +26,6 @@ Carretta E.,  Gratton R.~G.,  Bragaglia A.,  D’Orazi V.,  Lucatello S.,
   Kirby}{2012}]{cohenkirby2012}
 Cohen J.~G.,  Kirby E.~N.,  2012, The Astrophysical Journal, 760, 86
 
-\bibitem[\protect\citeauthoryear{Forbes \& Bridges}{Forbes \&
-  Bridges}{2010}]{forbesandbridges2010}
-Forbes D.~A.,  Bridges T.,  2010, Monthly Notices of the Royal Astronomical
-  Society, 404, 1203
-
 \bibitem[\protect\citeauthoryear{Ho et~al.,}{Ho et~al.}{2017}]{ho2017}
 Ho A.~Y.,  et~al., 2017, The Astrophysical Journal, 836, 5
 
@@ -48,9 +43,6 @@ Kato M.,  Hachisu I.,   Henze M.,  2013, The Astrophysical Journal, 779, 19
 Kobayashi C.,  Karakas A.~I.,   Umeda H.,  2011, Monthly Notices of the Royal
   Astronomical Society, 414, 3231
 
-\bibitem[\protect\citeauthoryear{Lee et~al.,}{Lee et~al.}{2013}]{youngwooklee}
-Lee Y.-W.,  et~al., 2013, The Astrophysical Journal Letters, 778, L13
-
 \bibitem[\protect\citeauthoryear{Mucciarelli, Bellazzini, Ibata, Merle,
   Chapman, Dalessandro  \& Sollima}{Mucciarelli et~al.}{2012}]{mucciarelli2012}
 Mucciarelli A.,  Bellazzini M.,  Ibata R.,  Merle T.,  Chapman S.,  Dalessandro
@@ -61,6 +53,10 @@ Mucciarelli A.,  Bellazzini M.,  Ibata R.,  Merle T.,  Chapman S.,  Dalessandro
   Dalessandro  \& Ibata}{Mucciarelli et~al.}{2015}]{mucciarelli2015}
 Mucciarelli A.,  Bellazzini M.,  Merle T.,  Plez B.,  Dalessandro E.,   Ibata
   R.,  2015, The Astrophysical Journal, 801, 68
+
+\bibitem[\protect\citeauthoryear{Tsujimoto \& Bekki}{Tsujimoto \&
+  Bekki}{2012}]{tsujimoto2012first}
+Tsujimoto T.,  Bekki K.,  2012, The Astrophysical Journal Letters, 751, L35
 
 \bibitem[\protect\citeauthoryear{Ventura, D'Antona, Di~Criscienzo, Carini,
   D'Ercole  et~al.}{Ventura et~al.}{2012}]{ventura2012}
