@@ -28,6 +28,9 @@ plt.close('all')
 mgkarray=np.array(pd.read_csv("Mg-K-candidatesFINALCUT_nonHemmision.csv"))
 globarray=np.array(pd.read_csv("globular_clusters.csv"))
 
+C_K2012=np.array(pd.read_csv("C+K 2012.csv"))
+Muc2012=np.array(pd.read_csv("Mucciarelli 2012.csv"))
+LC=np.array(pd.read_csv("LasCampmgkabundances.csv"))
 Teff=mgkarray[:,1]
 logg=mgkarray[:,2]
 metalicity=mgkarray[:,3]
@@ -36,6 +39,19 @@ mgkl=mgkarray[:,-2]
 mgkb=mgkarray[:,-1]
 globl=globarray[:,4]
 globb=globarray[:,5]
+
+C_KMg=C_K2012[:,1]
+C_KMgu=C_K2012[:,2]
+C_KK=C_K2012[:,3]
+#C_KKu=C_K2012[:,4] (no uncertainties known)
+MucMg=Muc2012[:,1]
+MucMgu=Muc2012[:,2]
+MucK=Muc2012[:,3]
+MucKu=Muc2012[:,4]
+
+LCMg=LC[:,1]
+LCK=LC[:,2]
+
 
 catalog = lamost.load_catalog()
 wavelengths = lamost.common_wavelengths
@@ -80,6 +96,32 @@ plt.xticks(np.arange(0, 361, 45)[::1])
 plt.xlabel('Galactic Longitude')
 plt.ylabel('Galactic Lattitude')
 plt.legend(loc='lower right')
+plt.show()
+
+
+plt.figure(4)
+
+plt.scatter(C_KMg, C_KK, label= "Kirby & Cohen 2012", s=15)
+#plt.errorbar(C_KMg, C_KK, xerr=C_KMgu, linestyle="None")
+(_, caps, _)=plt.errorbar(C_KMg, C_KK, xerr=C_KMgu, linestyle="None", linewidth=1, capsize=4,zorder=4)
+for cap in caps:
+    cap.set_markeredgewidth(.8)
+    
+plt.scatter(MucMg, MucK, label= "Mucciarreli 2012", s=15)
+#plt.errorbar(MucMg, MucK, xerr=MucMgu, yerr=MucKu, linestyle="None",linewidth=1)
+(_, caps, _) = plt.errorbar(MucMg, MucK, xerr=MucMgu, yerr=MucKu, linestyle="None",linewidth=1, capsize=4, zorder=3)
+for cap in caps:
+    cap.set_markeredgewidth(.8)
+
+plt.plot([-1.2,1],[-.4,1.8],'--', zorder=0)
+plt.scatter(LCMg, LCK, label= "Las Campanas 2018", c='k',marker='d',zorder=100)
+plt.xlabel('[Mg/Fe]')
+plt.ylabel('[K/Fe]')
+plt.annotate('Mg depleted population',xy=(-1.5,0.7))
+plt.annotate('Mg normal population',xy=(-0.8,-0.3))
+l=plt.legend(loc=1)
+l.set_zorder(1)
+
 plt.show()
 
 
@@ -160,7 +202,7 @@ def plot_spectrummod(wavelengths, observed_flux, observed_ivar, model_flux):
 
 
 
-star_index = 405638
+star_index = 245603
 observed_flux = all_observed_flux[star_index]
 observed_ivar = all_observed_ivar[star_index]
 model_flux = all_model_flux[star_index]
@@ -208,31 +250,6 @@ mark_inset(ax, AxinsK, loc1=1, loc2=2, fc="none", ec="0.5")
 
 plt.draw()
 plt.show()
-raise a
 
-# prepare the demo image
-Z, extent = get_demo_image()
-Z2 = np.zeros([150, 150], dtype="d")
-ny, nx = Z.shape
-Z2[30:30+ny, 30:30+nx] = Z
 
-# extent = [-3, 4, -4, 3]
-ax.imshow(Z2, extent=extent, interpolation="nearest",
-          origin="lower")
-
-axins = zoomed_inset_axes(ax, 6, loc=1) # zoom = 6
-axins.imshow(Z2, extent=extent, interpolation="nearest",
-             origin="lower")
-
-# sub region of the original image
-x1, x2, y1, y2 = -1.5, -0.9, -2.5, -1.9
-axins.set_xlim(x1, x2)
-axins.set_ylim(y1, y2)
-
-plt.xticks(visible=False)
-plt.yticks(visible=False)
-
-# draw a bbox of the region of the inset axes in the parent axes and
-# connecting lines between the bbox and the inset axes area
-mark_inset(ax, axins, loc1=2, loc2=4, fc="none", ec="0.5")
 
