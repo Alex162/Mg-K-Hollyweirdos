@@ -30,6 +30,10 @@ globarray=np.array(pd.read_csv("globular_clusters.csv"))
 
 C_K2012=np.array(pd.read_csv("C+K 2012.csv"))
 Muc2012=np.array(pd.read_csv("Mucciarelli 2012.csv"))
+
+ngc2808=np.array(pd.read_csv("NGC2808 Muc 2015.csv"))
+
+
 LC=np.array(pd.read_csv("LasCampmgkabundances.csv"))
 Teff=mgkarray[:,1]
 logg=mgkarray[:,2]
@@ -48,6 +52,9 @@ MucMg=Muc2012[:,1]
 MucMgu=Muc2012[:,2]
 MucK=Muc2012[:,3]
 MucKu=Muc2012[:,4]
+
+ngc2808Mg=ngc2808[:,0]
+ngc2808K=ngc2808[:,1]
 
 LCMg=LC[:,1]
 LCK=LC[:,2]
@@ -101,26 +108,40 @@ plt.show()
 
 plt.figure(4)
 
-plt.scatter(C_KMg, C_KK, label= "Kirby & Cohen 2012", s=15)
+plt.scatter(C_KMg, C_KK, label= " NGC 2419 Kirby & Cohen 2012", s=25, c='gray')
 #plt.errorbar(C_KMg, C_KK, xerr=C_KMgu, linestyle="None")
-(_, caps, _)=plt.errorbar(C_KMg, C_KK, xerr=C_KMgu, linestyle="None", linewidth=1, capsize=4,zorder=4)
+(_, caps, _)=plt.errorbar(C_KMg, C_KK, xerr=C_KMgu, linestyle="None", linewidth=.8, capsize=4,zorder=4, c='gray')
 for cap in caps:
     cap.set_markeredgewidth(.8)
     
-plt.scatter(MucMg, MucK, label= "Mucciarreli 2012", s=15)
+plt.scatter(MucMg, MucK, label= "NGC 2419 Mucciarreli 2012", s=25, c='gray', marker='s')
 #plt.errorbar(MucMg, MucK, xerr=MucMgu, yerr=MucKu, linestyle="None",linewidth=1)
-(_, caps, _) = plt.errorbar(MucMg, MucK, xerr=MucMgu, yerr=MucKu, linestyle="None",linewidth=1, capsize=4, zorder=3)
+(_, caps, _) = plt.errorbar(MucMg, MucK, xerr=MucMgu, yerr=MucKu, linestyle="None",linewidth=.8, capsize=4, zorder=3, c='gray')
 for cap in caps:
     cap.set_markeredgewidth(.8)
 
-plt.plot([-1.2,1],[-.4,1.8],'--', zorder=0)
+
+
+plt.scatter(ngc2808Mg,ngc2808K, label="NGC 2808 Muc 2015", marker='o', facecolor='none', edgecolor='dimgray')
 plt.scatter(LCMg, LCK, label= "Las Campanas 2018", c='k',marker='d',zorder=100)
+
 plt.xlabel('[Mg/Fe]')
 plt.ylabel('[K/Fe]')
+
+x1=-1.2
+y1=-0.4
+x2=1
+y2=1.8
+m=(y2-y1)/(x2-x1)
+c=y2-m*x2
+lineeqn= "y=" + str(m) + "x+" + str(c)
+
 plt.annotate('Mg depleted population',xy=(-1.5,0.7))
 plt.annotate('Mg normal population',xy=(-0.8,-0.3))
-l=plt.legend(loc=1)
-l.set_zorder(1)
+plt.annotate(lineeqn, xy= (-1.6, 0.-.3))
+plt.plot([x1,x2],[y1,y2],'--', zorder=0, c='r')
+#l=plt.legend(loc=1)
+#l.set_zorder(1)
 
 plt.show()
 
