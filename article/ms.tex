@@ -221,7 +221,7 @@ e.g. Table~\ref{tab:example_table}.
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{KvsMgab.png}
-    \caption{[Comparison of K vs Mg abundances with NGC 2419 and NGC 2808.}
+    \caption{[Comparison of K vs Mg abundances with NGC 2419 and NGC 2808. The dotted divisor line is present simply as a visual aide.}
     \label{KvsMg}
 \end{figure}
 
@@ -244,25 +244,77 @@ e.g. Table~\ref{tab:example_table}.
 \end{table}
 
 \section{Discussion}
+\subsection{Association with globular clusters}
+
+Of the 113 candidate sample identified, J074807.22+261514.2 appears closet to a globular cluster, and even then at significant angular distance of 2.54 $\deg$ . Although little is known about Ko 2 other than that it is an extremely faint halo cluster \citep{koposov2007} but it would be expected that a star from such a cluster would have very low metalicty, while J074807.22+261514.2 has $ \text{[Fe/H]} = -0.24 \pm 0.07$  and would be unlikely to appear in a survey such as \lamost , which favours detection of low magnitude stars. In particular, none of the stars appear to be associated with NGC 2419, NGC 2808 or $\omega$ Centauri. Only 4 stars cross matched with GAIA's DR1, and when backwards time integrated using GAIA's data with the GALA package they exhibited orbits consistent with field stars, with none of the eccentricity and high velocity typical of a star from a disrupted cluster. 
+
+The spread of metalicity shown in Figure \ref{mhist} further supports the sample being made up of field stars, displaying a spread reflective of the original \LamostGiants \ sample of giants. If there was a significant influence in the sample from disrupted stars from another as yet unidentified cluster containing the Mg-K anti-correlation, a significant deviation in the metalicity histogram from the base \lamost \  sample of giants should be visible.
+
+There is no evidence at this time supporting any stars from this sample having origins in globular clusters, while Figure \ref{galcord} clearly indicates that the positions of the candidates are consistent with field stars in the disk of the galaxy. The spread in metalicity shown in Figure \ref{mhist}, with significant numbers of high metalicity stars, further supports the conclusion that the sample is comprised of field stars presumably formed at different times throughout the lifetime of the Milky Way.
 
 \begin{itemize}
-\item Association with globular clusters: basically all stars (will have to redo plot and search for the new tables) are not associated with globular clusters. in terms of those which are kinda close in GC, state which cluster(s) they could be associated with. We lack dynamics information, but potentially the next data release from GAIA will help with that. Check with apparent magnitudes to see if the stars are consistent in that regard.
+\item Association with globular clusters: basical
+ly all stars (will have to redo plot and search for the new tables) are not associated with globular clusters. in terms of those which are kinda close in GC, state which cluster(s) they could be associated with. We lack dynamics information, but potentially the next data release from GAIA will help with that. Check with apparent magnitudes to see if the stars are consistent in that regard.
+\end{itemize}
 
-\item Metalicity: the candidate stars are found at a wide range of metalicities, from \todo{-1.4<[Fe/H]<0.3}. for comparison, NGC 2808 and NGC 2419 have [Fe/H] ~-2.
 
+
+\subsection{Abundances}
+
+Figure \ref{KvsMg} shows the abundances for the 113 star sample overlaid with with abundances from NGC 2419 and NGC 2808 \citep{cohenkirby2012,mucciarelli2012,mucciarelli2015}. The sample is plotted against [$\alpha$/Fe] as reliable abundances for [Mg/Fe] were impossible to accurately obtain from the LAMOST data. [$\alpha$/Fe] is likely representative of [Mg/Fe], and at the very least serves as an (approximate) upper limit for [Mg/Fe]. The use of [$\alpha$/Fe] as a proxy for [Mg/Fe] is supported by the [Mg/Fe] measurements from the high resolution spectra obtained, with the [Mg/Fe] measurements from \textit{Magellan} being similar to the [$\alpha$/Fe] abundances from \tc.
+
+The candidates exhibit K abundances which are lower and probable Mg abundances which are higher than the Mg extreme population found in NGC 2419. In general they appear to fall between the two populations.
+
+Relative to typical galactic ranges of [Mg/Fe] and [K/Fe], only the [K/Fe] appears anomalous from Figure \ref{KvsMg}. Galactic values for [K/Fe] are observed around $0.3 \pm 0.2$ dex, while the \lamost \ sample of stars varies from around 0.8-1.3, and the \textit{Magellan} abundance for candidate star J091825.49+172114.5 having [K/Fe] $\approx$ 1.54.
+
+The implications of the calculated abundances are intriguing. The fact that from a sample of \LamostGiants field stars none were found that exhibited the extreme abundance pattern of NGC 2419 further and perhaps definitively cements the clusters uniqueness.
+
+However, the 113 candidate pool identified represents a collection of stars that display significantly enhanced [K/Fe] and, despite indications of the flux signals (see Figure \ref{posterchild}), apparently normal levels of [Mg/Fe]. Certainly, no Mg depletion of similar scale to NGC 2419 or even the substantially weaker NGC 2808 signature is evident.
+
+\todo{IMPORTANT: Discuss with andy the implications of this. We ran filters that were meant to pick up stars depleted in Mg AND enriched in K. instead, it seems to have picked up stars that are enriched in K, but exhibit galaxy-normal levels of Mg. Surely we need an explanation for this result to our filter query?}
+
+
+
+\begin{itemize}
 \item Abundances: K abundances are lower and Mg abundances are higher than those in the extreme population of 2419. however, they \textit{are} still (perhaps) significantly K enhanced and Mg depleted, perhaps the first field stars identified as such. Only 113 out of \LamostGiants \ stars were found to be good candidates for enhanced K and reduced Mg. Likely not products of the same process as acted in NGC 2419, but possibly? Main implications: searched \LamostGiants \ stars, but didn't find any that we could say 'yeah that looks like it could have came from the same process that caused NGC 2419's signiature'.
+
+\end{itemize}
+
+\subsection{A new approach to the Mg-K problem}
+Significantly enhanced [K/Fe] is rare; significantly enhanced [K/Fe] without an accompanying depletion of [Mg/Fe] is unknown. Further, the candidate stars are spread across a wide range of metalicities.
+
+This spread in metalicity is important; it strongly implies that the process responsible for this signature, rare as it is, is not necessarily tied to a certain epoch in the history of our galaxy. Rather, these stars appear to be continuously forming from successive generations of stars.
+
+This immediately eliminates as a polluter candidate any theoretical hyper-massive Population III star we care to come up a with. While such an object might be remotely plausible in the context of NGC 2419, it cannot explain the enhanced K abundances observed in the disk.
+
+As emphasized by \cite{prantzos2017}, a large part of the problem presented by the signiatures of NGC 2419 and NGC 2808 is obtaining both a depletion Mg and an enhancement in K. Reducing Mg is possible through conversion of \ce{^{24}Mg} to \ce{^{23} Na} and through Mg-Al chains at temperatures around 75 MK, obtainable through hot-bottom burning in AGB stars while it takes temperatures upwards of 150 MK to produce K, temperatures possibly obtained at the bottom of the envelope in SAGB stars \citep{iliadis2016}. This implies that the Mg depletion and K enrichment could occur at separate sites.
+
+One possible scenario that could produce a large K enhanced signature in a few select stars in the Milky Way would be a binary in which one of the stars is a SAGB star. Then, if this SAGB star were to produce K, the star may accrete onto its smaller companion which would continue to evolve long after the SAGB star is gone. This companion would then, depending on its mass, either undergo hot-bottom burning or, more probably, would not. If the companion star had sufficient mass to undergo hot bottom burning, then Na should be enhanced from production from \ce{^24 Mg} and \ce{^22 Ne}.
+
+The chief advantage of this scenario is that it allows for K abundances to appear at a range of metalicities, and accounts explaining the significant minority population of the stars which show Na enhancements.
+
+It does not, however, account for the uniqueness of the signal to NGC 2419 and NGC 2808 among globular clusters, nor does it satisfactorily explain why such a large number of stars in NGC 2419 exhibit the Mg-K anti-correlation. It seems probable that the K enhancements evident in the identified population of candidate stars are from a different source than the Mg-K anti-correlation seen in NGC 2419.
+\begin{itemize}
 
 \item What does this abundance imply about pollution mechanisms? depends whether we decide that our identified stars were produced by the same process or not. IF they weren't produced by the same process, then this is further evidence that the event/object was unique to old globular clusters. If however they WERE produced by the same process, but just weren't as polluted (the primordial material was made up of a lower fraction of anomalously enriched material), then the implications are a bit weird. We found stars across a large range of metalicities. Diferent formation times is also implied by metalicity.
 
-
-
-\item spread in Logg and Teff: the fact that we see stars across a range of Teff and Logg eliminates the idea that the candidates as all being so called 'red-clump' red giants or any other phenomena specific to certain RGB stages/ types. 
 
 \item working hypothesis (John, Tout): We decouple the Mg and the K. A SAGB binary with a smaller companion. the SAGB produces K, which then accretes to the companion. the companion will evolve long after the SAGB explodes, then will either (depending on mass/temperature) undergo hot bottom burning or it won't. If it does? undergo hot bottom burning then Na will be produced. If it doesn't? undergo hot bottom burning then Na won't be produced. other predictions: O shouldn't? be be there, nor should C or N as they get turned into Na. This scenario is plausible to happen in the MW disk, throughout an extended period of time, therefore being consistent with the spread in metalicities that we see. Look at iliadis 2017 to see some other implications of hot bottom burning in AGB (low temperature) star and SAGB (high temp) burning.
 
 \item We're not allowed to have a single big event in NGC 2419 and then clumps of material floating round the galaxy and occasionally forming a star. one good reason: its really distant form the galaxy. thus our K enhancements must source from a star inside the galaxy, NOT a globular cluster. this raises some interesting issues. If the source of our K enhancements is the same as NGC 2419, where we had Mg depletions that then were later covered up/ reduced in magnitude in the case of our disk stars, then the big question i'd want answered is: So we have this thing that only occurs in 2419... and the MW disk... throughout the life of the MW disk... but not in any other globular clusters. seems a bit picky...
 
 \item novae: the mass budged problem is much worse for NGC 2419 than \cite{iliadis2016} made it appear, and is very unlikely to be responsible for the phenomena. finding even more K enhanced stars in the MW doesn't change this.
+
+\end{itemize}
+
+
+
+
+\begin{itemize}
+
+
+\item spread in Logg and Teff: the fact that we see stars across a range of Teff and Logg eliminates the idea that the candidates as all being so called 'red-clump' red giants or any other phenomena specific to certain RGB stages/ types. 
+
 
 
 \end{itemize}
