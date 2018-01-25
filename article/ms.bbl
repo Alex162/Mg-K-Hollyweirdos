@@ -17,6 +17,9 @@
   {mn@eprint@\@tempb}{\@tempb:\@tempc}{\expandafter \expandafter \csname
   mn@eprint@\@tempb\endcsname \expandafter{\@tempc}}}
 
+\bibitem[\protect\citeauthoryear{Alam et~al.,}{Alam et~al.}{2015}]{alam2015}
+Alam S.,  et~al., 2015, The Astrophysical Journal Supplement Series, 219, 12
+
 \bibitem[\protect\citeauthoryear{Carretta, Gratton, Bragaglia, D’Orazi,
   Lucatello, Sollima  \& Sneden}{Carretta et~al.}{2013}]{carretta2013}
 Carretta E.,  Gratton R.~G.,  Bragaglia A.,  D’Orazi V.,  Lucatello S.,
@@ -25,6 +28,9 @@ Carretta E.,  Gratton R.~G.,  Bragaglia A.,  D’Orazi V.,  Lucatello S.,
 \bibitem[\protect\citeauthoryear{Cohen \& Kirby}{Cohen \&
   Kirby}{2012}]{cohenkirby2012}
 Cohen J.~G.,  Kirby E.~N.,  2012, The Astrophysical Journal, 760, 86
+
+\bibitem[\protect\citeauthoryear{Harris}{Harris}{1996}]{harris1996}
+Harris W.~E.,  1996, The Astronomical Journal, 112, 1487
 
 \bibitem[\protect\citeauthoryear{Ho et~al.,}{Ho et~al.}{2017}]{ho2017}
 Ho A.~Y.,  et~al., 2017, The Astrophysical Journal, 836, 5
@@ -58,10 +64,19 @@ Mucciarelli A.,  Bellazzini M.,  Ibata R.,  Merle T.,  Chapman S.,  Dalessandro
 Mucciarelli A.,  Bellazzini M.,  Merle T.,  Plez B.,  Dalessandro E.,   Ibata
   R.,  2015, The Astrophysical Journal, 801, 68
 
+\bibitem[\protect\citeauthoryear{Ness, Hogg, Rix, Martig, Pinsonneault  \&
+  Ho}{Ness et~al.}{2016}]{ness2016}
+Ness M.,  Hogg D.~W.,  Rix H.-W.,  Martig M.,  Pinsonneault M.~H.,   Ho A.,
+  2016, The Astrophysical Journal, 823, 114
+
 \bibitem[\protect\citeauthoryear{Prantzos, Charbonnel  \& Iliadis}{Prantzos
   et~al.}{2017}]{prantzos2017}
 Prantzos N.,  Charbonnel C.,   Iliadis C.,  2017, Astronomy \& Astrophysics,
   608, A28
+
+\bibitem[\protect\citeauthoryear{Schlafly \& Finkbeiner}{Schlafly \&
+  Finkbeiner}{2011}]{schlafly2011}
+Schlafly E.~F.,  Finkbeiner D.~P.,  2011, The Astrophysical Journal, 737, 103
 
 \bibitem[\protect\citeauthoryear{Tsujimoto \& Bekki}{Tsujimoto \&
   Bekki}{2012}]{tsujimoto2012first}
