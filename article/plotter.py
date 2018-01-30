@@ -31,8 +31,12 @@ globarray=np.array(pd.read_csv("globular_clusters.csv"))
 C_K2012=np.array(pd.read_csv("C+K 2012.csv"))
 Muc2012=np.array(pd.read_csv("Mucciarelli 2012.csv"))
 
+
 ngc2808=np.array(pd.read_csv("NGC2808 Muc 2015.csv"))
 
+lamK=np.array(pd.read_csv("provisionalKabundances.csv"))
+
+Maglam=np.array(pd.read_csv("Magellan.csv"))
 
 LC=np.array(pd.read_csv("LasCampmgkabundances.csv"))
 Teff=mgkarray[:,1]
@@ -56,9 +60,14 @@ MucKu=Muc2012[:,4]
 ngc2808Mg=ngc2808[:,0]
 ngc2808K=ngc2808[:,1]
 
+Maglamalpha=Maglam[:,4]
+MaglamK=Maglam[:,-4]
+
 LCMg=LC[:,1]
 LCK=LC[:,2]
 
+lamkk=lamK[:,-4]
+lamkalpha=lamK[:,4]
 
 catalog = lamost.load_catalog()
 wavelengths = lamost.common_wavelengths
@@ -97,7 +106,7 @@ plt.gca().invert_yaxis()
 plt.show()
 
 plt.figure(3)
-plt.scatter(mgkl, mgkb, label='Mg-K Stars', s=10)
+plt.scatter(mgkl, mgkb, label='Sample Mg-K stars', s=10)
 plt.scatter(globl, globb, label='Globular Clusters', facecolors='none', edgecolors='k')
 plt.xticks(np.arange(0, 361, 45)[::1])
 plt.xlabel('Galactic Longitude')
@@ -124,6 +133,12 @@ for cap in caps:
 
 plt.scatter(ngc2808Mg,ngc2808K, label="NGC 2808 Muc 2015", marker='o', facecolor='none', edgecolor='dimgray')
 plt.scatter(LCMg, LCK, label= "Las Campanas 2018", c='k',marker='d',zorder=100)
+
+plt.scatter(lamkalpha,lamkk)
+plt.plot((LCMg[0],Maglamalpha[0]),(LCK[0],MaglamK[0]),c='orange')
+plt.plot((LCMg[1],Maglamalpha[1]),(LCK[1],MaglamK[1]),c='orange')
+plt.plot((LCMg[2],Maglamalpha[2]),(LCK[2],MaglamK[2]),c='orange')
+plt.scatter(Maglamalpha,MaglamK, c='lightgreen')
 
 plt.xlabel('[Mg/Fe]')
 plt.ylabel('[K/Fe]')
