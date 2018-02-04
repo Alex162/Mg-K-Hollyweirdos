@@ -87,13 +87,18 @@ all_model_flux = np.memmap(
     mode="r", dtype="float32", shape=(N, P))
 
 
-binwidth=.05
-plt.figure(1)
-plt.hist(metalicity, bins=np.arange(-1.5, 0.5, binwidth),edgecolor='black')
-plt.xticks(np.arange(-1.5, 0.5, binwidth)[::4])
-plt.xlabel("[Fe/H]")
-plt.title('[Fe/H] for candidate stars')
-plt.show()
+binwidth=.10
+fig, ax = plt.subplots()
+ax.hist(metalicity, bins=np.arange(-1.5, 0.5, binwidth),
+        facecolor="#666666", edgecolor="k")
+ax.xaxis.set_major_locator(MaxNLocator(6))
+ax.set_xlim(-1.5, 0.5)
+ax.set_xlabel(r"[Fe/H]")
+fig.tight_layout()
+fig.savefig("histof113.png", dpi=300)
+fig.savefig("histof113.pdf", dpi=300)
+
+raise a
 
 plt.figure(2)
 plt.scatter(Teff ,logg , c=metalicity, cmap='plasma',s=40)
@@ -122,7 +127,7 @@ plt.scatter(C_KMg, C_KK, label= " NGC 2419 Kirby & Cohen 2012", s=25, c='gray')
 (_, caps, _)=plt.errorbar(C_KMg, C_KK, xerr=C_KMgu, linestyle="None", linewidth=.8, capsize=4,zorder=4, c='gray')
 for cap in caps:
     cap.set_markeredgewidth(.8)
-    
+
 plt.scatter(MucMg, MucK, label= "NGC 2419 Mucciarreli 2012", s=25, c='gray', marker='s')
 #plt.errorbar(MucMg, MucK, xerr=MucMgu, yerr=MucKu, linestyle="None",linewidth=1)
 (_, caps, _) = plt.errorbar(MucMg, MucK, xerr=MucMgu, yerr=MucKu, linestyle="None",linewidth=.8, capsize=4, zorder=3, c='gray')
@@ -202,7 +207,7 @@ def plot_spectrummod(wavelengths, observed_flux, observed_ivar, model_flux):
 
     observed_flux_error = observed_ivar**-2
     ax_spectrum.plot(wavelengths, observed_flux, c="k", drawstyle="steps-mid", label='LAMOST Spectra')
-    fill_between_steps(ax_spectrum, wavelengths, 
+    fill_between_steps(ax_spectrum, wavelengths,
         observed_flux - observed_flux_error, observed_flux + observed_flux_error,
         facecolor="k", alpha=0.5)
 
@@ -232,7 +237,7 @@ def plot_spectrummod(wavelengths, observed_flux, observed_ivar, model_flux):
 
     ax_spectrum.set_xlabel("Wavelengths (Angstroms)")
     ax_spectrum.set_ylabel("Normalized flux")
-    
+
     return fig, ax_spectrum
 
 
