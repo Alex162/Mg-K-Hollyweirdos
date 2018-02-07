@@ -9,6 +9,8 @@ Created on Tue Jan  9 15:25:28 2018
 import numpy as np
 import os
 import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+from matplotlib.font_manager import FontProperties
 import pandas as pd
 from glob import glob
 import astropy as asp
@@ -25,8 +27,7 @@ from astropy.io import fits
 from astropy.table import Table
 plt.close('all')
 
-mgkarray=np.array(pd.read_csv("Mg-K-candidatesFINALCUT_nonHemmision.csv"))
-globarray=np.array(pd.read_csv("globular_clusters.csv"))
+mgkarray=np.array(pd.read_csv("Total112listdr2kna.csv"))
 
 C_K2012=np.array(pd.read_csv("C+K 2012.csv"))
 Muc2012=np.array(pd.read_csv("Mucciarelli 2012.csv"))
@@ -34,31 +35,39 @@ Muc2012=np.array(pd.read_csv("Mucciarelli 2012.csv"))
 
 ngc2808=np.array(pd.read_csv("NGC2808 Muc 2015.csv"))
 
-lamK=np.array(pd.read_csv("provisionalKabundances.csv"))
+lamK=mgkarray[:,[-4,-3,-2,-1]]
 
 Maglam=np.array(pd.read_csv("Magellan.csv"))
 
 LC=np.array(pd.read_csv("LasCampmgkabundances.csv"))
+
+apogee=np.array(pd.read_csv("apogeefiltered.csv"))
+
+apFe=apogee[:,113]
+apK=apogee[:,106]
+
 Teff=mgkarray[:,1]
 logg=mgkarray[:,2]
 metalicity=mgkarray[:,3]
+alpha=mgkarray[:,4]
 
-mgkl=mgkarray[:,-2]
-mgkb=mgkarray[:,-1]
-globl=globarray[:,4]
-globb=globarray[:,5]
+
 
 C_KMg=C_K2012[:,1]
 C_KMgu=C_K2012[:,2]
 C_KK=C_K2012[:,3]
 #C_KKu=C_K2012[:,4] (no uncertainties known)
+C_KFe=C_K2012[:,5]
+
 MucMg=Muc2012[:,1]
 MucMgu=Muc2012[:,2]
 MucK=Muc2012[:,3]
 MucKu=Muc2012[:,4]
+MucFe=Muc2012[:,5]
 
 ngc2808Mg=ngc2808[:,0]
 ngc2808K=ngc2808[:,1]
+ngc2808Fe=ngc2808[:,2]
 
 Maglamalpha=Maglam[:,4]
 MaglamK=Maglam[:,-4]
@@ -66,8 +75,8 @@ MaglamK=Maglam[:,-4]
 LCMg=LC[:,1]
 LCK=LC[:,2]
 
-lamkk=lamK[:,-4]
-lamkalpha=lamK[:,4]
+Lamkab=lamK[:,0]
+
 
 catalog = lamost.load_catalog()
 wavelengths = lamost.common_wavelengths
@@ -91,79 +100,108 @@ binwidth=.10
 fig, ax = plt.subplots()
 ax.hist(metalicity, bins=np.arange(-1.5, 0.5, binwidth),
         facecolor="#666666", edgecolor="k")
-ax.xaxis.set_major_locator(MaxNLocator(6))
+ax.xaxis.set_major_locator(ticker.MaxNLocator(6))
 ax.set_xlim(-1.5, 0.5)
-ax.set_xlabel(r"[Fe/H]")
+ax.set_xlabel("[Fe/H]")
 fig.tight_layout()
 fig.savefig("histof113.png", dpi=300)
 fig.savefig("histof113.pdf", dpi=300)
 
-raise a
-
-plt.figure(2)
-plt.scatter(Teff ,logg , c=metalicity, cmap='plasma',s=40)
-cbar=plt.colorbar()
-cbar.set_label('[Fe/H]')
-plt.xlabel('Teff')
-plt.ylabel('Log(g)')
-plt.gca().invert_xaxis()
-plt.gca().invert_yaxis()
-plt.show()
-
-plt.figure(3)
-plt.scatter(mgkl, mgkb, label='Sample Mg-K stars', s=10)
-plt.scatter(globl, globb, label='Globular Clusters', facecolors='none', edgecolors='k')
-plt.xticks(np.arange(0, 361, 45)[::1])
-plt.xlabel('Galactic Longitude')
-plt.ylabel('Galactic Lattitude')
-plt.legend(loc='lower right')
-plt.show()
+plt.show() 
 
 
-plt.figure(4)
 
-plt.scatter(C_KMg, C_KK, label= " NGC 2419 Kirby & Cohen 2012", s=25, c='gray')
-#plt.errorbar(C_KMg, C_KK, xerr=C_KMgu, linestyle="None")
-(_, caps, _)=plt.errorbar(C_KMg, C_KK, xerr=C_KMgu, linestyle="None", linewidth=.8, capsize=4,zorder=4, c='gray')
+
+fig=plt.figure(2)
+
+ax1=fig.add_subplot(111)
+
+ax1.scatter(C_KMg, C_KK, label= " NGC 2419 Kirby & Cohen 2012", s=20, c='gray')
+plt.errorbar(C_KMg, C_KK, xerr=C_KMgu, linestyle="None",c='gray',linewidth=1)
+(_, caps, _)=ax1.errorbar(C_KMg, C_KK, xerr=C_KMgu, linestyle="None", linewidth=.8, capsize=4,zorder=4, c='gray')
 for cap in caps:
     cap.set_markeredgewidth(.8)
 
-plt.scatter(MucMg, MucK, label= "NGC 2419 Mucciarreli 2012", s=25, c='gray', marker='s')
-#plt.errorbar(MucMg, MucK, xerr=MucMgu, yerr=MucKu, linestyle="None",linewidth=1)
+ax1.scatter(MucMg, MucK, label= "NGC 2419 Mucciarreli 2012", s=20, c='gray', marker='s')
+plt.errorbar(MucMg, MucK, xerr=MucMgu, yerr=MucKu, linestyle="None",c='gray',linewidth=1)
 (_, caps, _) = plt.errorbar(MucMg, MucK, xerr=MucMgu, yerr=MucKu, linestyle="None",linewidth=.8, capsize=4, zorder=3, c='gray')
 for cap in caps:
     cap.set_markeredgewidth(.8)
 
 
 
-plt.scatter(ngc2808Mg,ngc2808K, label="NGC 2808 Muc 2015", marker='o', facecolor='none', edgecolor='dimgray')
-plt.scatter(LCMg, LCK, label= "Las Campanas 2018", c='k',marker='d',zorder=100)
+ax1.scatter(ngc2808Mg,ngc2808K, label="NGC 2808 Muc 2015", marker='o', facecolor='none', edgecolor='k')
+ax1.scatter(LCMg, LCK, label= "Magellan/MIKE", c='k',marker='d',zorder=100)
 
-plt.scatter(lamkalpha,lamkk)
-plt.plot((LCMg[0],Maglamalpha[0]),(LCK[0],MaglamK[0]),c='orange')
-plt.plot((LCMg[1],Maglamalpha[1]),(LCK[1],MaglamK[1]),c='orange')
-plt.plot((LCMg[2],Maglamalpha[2]),(LCK[2],MaglamK[2]),c='orange')
-plt.scatter(Maglamalpha,MaglamK, c='lightgreen')
+#ax1.scatter(alpha,Lamkab)
+uplims=np.ones(Lamkab.size)
+ax1.errorbar(alpha,Lamkab,xuplims=uplims,linestyle="None", marker='o', markersize=5, xerr=0.1,
+             linewidth=1.5, zorder=1, alpha=0.5, c='SteelBlue')
+ax1.errorbar(alpha,Lamkab,xuplims=np.zeros(Lamkab.size),linestyle="None", marker='o', markersize=5, xerr=0,
+             linewidth=1.5, zorder=2,label=r'$LAMOST$ candidate stars', alpha=1, c='SteelBlue')
 
-plt.xlabel('[Mg/Fe]')
+ax1.plot((LCMg[0],Maglamalpha[0]),(LCK[0],MaglamK[0]),c='orange',zorder=3)
+ax1.plot((LCMg[1],Maglamalpha[1]),(LCK[1],MaglamK[1]),c='orange',zorder=3)
+ax1.plot((LCMg[2],Maglamalpha[2]),(LCK[2],MaglamK[2]),c='orange',zorder=3)
+#ax1.scatter(Maglamalpha,MaglamK, c='lightgreen',zorder=2)
+ax1.errorbar(Maglamalpha,MaglamK,xuplims=[1,1,1],linestyle="None", marker='o', markersize=5, xerr=0.1, linewidth=1.5, zorder=5000,c='r')
+ax1.set_xlabel('[Mg/Fe]')
 plt.ylabel('[K/Fe]')
+
 
 x1=-1.2
 y1=-0.4
-x2=1
-y2=1.8
+x2=.8
+y2=1.6
 m=(y2-y1)/(x2-x1)
 c=y2-m*x2
 lineeqn= "y=" + str(m) + "x+" + str(c)
 
-plt.annotate('Mg depleted population',xy=(-1.5,0.7))
-plt.annotate('Mg normal population',xy=(-0.8,-0.3))
-plt.annotate(lineeqn, xy= (-1.6, 0.-.3))
-plt.plot([x1,x2],[y1,y2],'--', zorder=0, c='r')
-#l=plt.legend(loc=1)
-#l.set_zorder(1)
+ax1.annotate('Mg depleted population',xy=(-1.4,0.4))
+ax1.annotate('Mg normal population',xy=(-0.8,-0.3))
+ax1.annotate(lineeqn, xy= (-1.3,0.1))
+ax1.plot([x1,x2],[y1,y2],'--', zorder=0, c='k')
+fontP=FontProperties()
+fontP.set_size('small')
+l=ax1.legend(prop=fontP,bbox_to_anchor=[.88,.975],loc='center')
 
 plt.show()
+
+
+
+
+fig=plt.figure(5)
+ax=plt.subplot(111)
+plt.scatter(metalicity,Lamkab,zorder=5,label=r'$LAMOST$ candidate stars',s=20)
+
+z = numpy.polyfit(list(metalicity), list(Lamkab), 1)
+p = numpy.poly1d(z)
+pylab.plot([-2.3,0.4],p([-2.3,0.4]),"k--")
+
+zstr=[ "{:0.2f}".format(x) for x in z]
+
+lineeqn= "y=" + zstr[0] + "x+" + str(zstr[1])
+plt.annotate(lineeqn,xy=(-1.8,1.4))
+
+plt.scatter(C_KFe,C_KK, label= " NGC 2419 Kirby & Cohen 2012", s=20, c='gray',zorder=4)
+plt.scatter(MucFe,MucK, label= "NGC 2419 Mucciarreli 2012", s=20, c='gray', marker='s',zorder=3)
+plt.scatter(ngc2808Fe,ngc2808K,label="NGC 2808 Muc 2015", marker='o', facecolor='none', edgecolor='k',zorder=2)
+
+plt.scatter(apFe,apK,s=5,zorder=1,marker='.',c='FireBrick', label="APOGEE (year?)")
+
+l=plt.legend(prop=fontP,loc='center',bbox_to_anchor=[.88,.975],)
+plt.xlabel('[Fe/H]')
+plt.ylabel('[K/Fe]')
+
+x1, x2 = -2.5, 0.5 # specify the limits
+y1, y2 = -0.5, 2
+ax.set_xlim(x1, x2) # apply the x-limits
+ax.set_ylim(y1, y2)
+
+
+plt.show()
+
+
 
 
 def fill_between_steps(ax, x, y1, y2=0, h_align='mid', **kwargs):
@@ -235,8 +273,16 @@ def plot_spectrummod(wavelengths, observed_flux, observed_ivar, model_flux):
     # Hide x-label ticks on the residual axes
     plt.setp(ax_residual.get_xticklabels(), visible=False)
 
-    ax_spectrum.set_xlabel("Wavelengths (Angstroms)")
+    ax_spectrum.set_xlabel(r"Wavelengths $\AA$")
     ax_spectrum.set_ylabel("Normalized flux")
+    ax_residual.set_ylabel("Residual flux")
+
+    ax_residual.tick_params(
+            axis='x',          # changes apply to the x-axis
+            which='both',      # both major and minor ticks are affected
+            bottom='off',      # ticks along the bottom edge are off
+            top='off',         # ticks along the top edge are off
+            labelbottom='off') # labels along the bottom edge are off
 
     return fig, ax_spectrum
 
@@ -251,9 +297,9 @@ model_flux = all_model_flux[star_index]
 
 fig, ax = plot_spectrummod(wavelengths, observed_flux, observed_ivar, model_flux)
 fig.axes[1].set_ylim(0.0, 1.2)
-fig.suptitle('code_index: '+str(star_index) + ', LAMOST ID:'+str(catalog['id'][star_index]))
+#fig.suptitle('J034458.82+592955.1')
 #plt.legend(bbox_to_anchor=(0.15, .5, 1.0, .102), loc=4)
-plt.legend(loc='lower right')
+plt.legend(loc='center',bbox_to_anchor=(0.895,0.13))
 
 
 #from mpl_toolkits.axes_grid1.inset_locator import zoomed_inset_axes
@@ -261,12 +307,13 @@ from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 #axins = zoomed_inset_axes(ax, 2.5, loc=1)
 
 #Mg
-axinsMg = inset_axes(ax, 3, 1 , loc=2, bbox_to_anchor=(0.22, 0.44), bbox_transform=ax.figure.transFigure) # no zoom
+axinsMg = inset_axes(ax, 3, 1 , loc=2, bbox_to_anchor=(0.22, 0.435), bbox_transform=ax.figure.transFigure) # no zoom
 axinsMg.plot(wavelengths, observed_flux, 'k', wavelengths, model_flux, 'r')
 
 x1, x2, y1, y2 = 5150, 5200, 0.6, 1.2 # specify the limits
 axinsMg.set_xlim(x1, x2) # apply the x-limits
 axinsMg.set_ylim(y1, y2) # apply the y-limits
+axinsMg.xaxis.set_major_locator(ticker.MaxNLocator(3))
 plt.title('Mg')
 #plt.yticks(visible=False)
 #plt.xticks(visible=False)
@@ -275,9 +322,9 @@ mark_inset(ax, axinsMg, loc1=1, loc2=2, fc="none", ec="0.5")
 
 #K
 
-AxinsK = inset_axes(ax, 3, 1 , loc=2, bbox_to_anchor=(0.51, 0.44), bbox_transform=ax.figure.transFigure) # no zoom
+AxinsK = inset_axes(ax, 3, 1 , loc=2, bbox_to_anchor=(0.5, 0.435), bbox_transform=ax.figure.transFigure) # no zoom
 AxinsK.plot(wavelengths, observed_flux, 'k', wavelengths, model_flux, 'r')
-
+AxinsK.xaxis.set_major_locator(ticker.MaxNLocator(4))
 x1, x2, y1, y2 = 7650, 7720, 0.6, 1.2 # specify the limits
 AxinsK.set_xlim(x1, x2) # apply the x-limits
 AxinsK.set_ylim(y1, y2) # apply the y-limits
