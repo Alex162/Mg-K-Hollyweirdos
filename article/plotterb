@@ -50,7 +50,7 @@ Teff=mgkarray[:,1]
 logg=mgkarray[:,2]
 metalicity=mgkarray[:,3]
 alpha=mgkarray[:,4]
-
+metalicityerr=mgkarray[:,7]
 
 
 C_KMg=C_K2012[:,1]
@@ -76,8 +76,8 @@ LCMg=LC[:,1]
 LCK=LC[:,2]
 
 Lamkab=lamK[:,0]
-
-
+Lamkaberr=lamK[:,1]
+Lamkaberrquad=(np.square(Lamkaberr)+0.2**2)**0.5
 catalog = lamost.load_catalog()
 wavelengths = lamost.common_wavelengths
 N, P = (len(catalog), wavelengths.size)
@@ -99,13 +99,14 @@ all_model_flux = np.memmap(
 binwidth=.10
 fig, ax = plt.subplots()
 ax.hist(metalicity, bins=np.arange(-1.5, 0.5, binwidth),
-        facecolor="#666666", edgecolor="k")
+        facecolor="#CCCCCC", edgecolor="k")
 ax.xaxis.set_major_locator(ticker.MaxNLocator(6))
 ax.set_xlim(-1.5, 0.5)
 ax.set_xlabel("[Fe/H]")
+ax.set_ylabel("Count")
 fig.tight_layout()
-fig.savefig("histof113.png", dpi=300)
-fig.savefig("histof113.pdf", dpi=300)
+fig.savefig("mhist.png", dpi=300)
+fig.savefig("mhist.pdf", dpi=300)
 
 plt.show() 
 
@@ -116,13 +117,13 @@ fig=plt.figure(2)
 
 ax1=fig.add_subplot(111)
 
-ax1.scatter(C_KMg, C_KK, label= " NGC 2419 Kirby & Cohen 2012", s=20, c='gray')
+ax1.scatter(C_KMg, C_KK, label= " NGC 2419 (Kirby & Cohen, 2012)", s=20, c='gray', marker='^')
 plt.errorbar(C_KMg, C_KK, xerr=C_KMgu, linestyle="None",c='gray',linewidth=1)
 (_, caps, _)=ax1.errorbar(C_KMg, C_KK, xerr=C_KMgu, linestyle="None", linewidth=.8, capsize=4,zorder=4, c='gray')
 for cap in caps:
     cap.set_markeredgewidth(.8)
 
-ax1.scatter(MucMg, MucK, label= "NGC 2419 Mucciarreli 2012", s=20, c='gray', marker='s')
+ax1.scatter(MucMg, MucK, label= "NGC 2419 (Mucciarelli+ 2012)", s=20, c='gray', marker='s')
 plt.errorbar(MucMg, MucK, xerr=MucMgu, yerr=MucKu, linestyle="None",c='gray',linewidth=1)
 (_, caps, _) = plt.errorbar(MucMg, MucK, xerr=MucMgu, yerr=MucKu, linestyle="None",linewidth=.8, capsize=4, zorder=3, c='gray')
 for cap in caps:
@@ -130,21 +131,21 @@ for cap in caps:
 
 
 
-ax1.scatter(ngc2808Mg,ngc2808K, label="NGC 2808 Muc 2015", marker='o', facecolor='none', edgecolor='k')
-ax1.scatter(LCMg, LCK, label= "Magellan/MIKE", c='k',marker='d',zorder=100)
+ax1.scatter(ngc2808Mg,ngc2808K, label="NGC 2808 (Mucciarelli+ 2015)", marker='o', facecolor='none', edgecolor='k')
+ax1.scatter(LCMg, LCK, label= "This work (Magellan/MIKE)", c='k',marker='d',zorder=100)
 
 #ax1.scatter(alpha,Lamkab)
 uplims=np.ones(Lamkab.size)
 ax1.errorbar(alpha,Lamkab,xuplims=uplims,linestyle="None", marker='o', markersize=5, xerr=0.1,
              linewidth=1.5, zorder=1, alpha=0.5, c='SteelBlue')
 ax1.errorbar(alpha,Lamkab,xuplims=np.zeros(Lamkab.size),linestyle="None", marker='o', markersize=5, xerr=0,
-             linewidth=1.5, zorder=2,label=r'$LAMOST$ candidate stars', alpha=1, c='SteelBlue')
+             linewidth=1.5, zorder=2,label="This work (LAMOST)", alpha=1, c='SteelBlue')
 
 ax1.plot((LCMg[0],Maglamalpha[0]),(LCK[0],MaglamK[0]),c='orange',zorder=3)
 ax1.plot((LCMg[1],Maglamalpha[1]),(LCK[1],MaglamK[1]),c='orange',zorder=3)
 ax1.plot((LCMg[2],Maglamalpha[2]),(LCK[2],MaglamK[2]),c='orange',zorder=3)
 #ax1.scatter(Maglamalpha,MaglamK, c='lightgreen',zorder=2)
-ax1.errorbar(Maglamalpha,MaglamK,xuplims=[1,1,1],linestyle="None", marker='o', markersize=5, xerr=0.1, linewidth=1.5, zorder=5000,c='r')
+ax1.errorbar(Maglamalpha,MaglamK,xuplims=[1,1,1],linestyle="None", marker='o', markersize=5, xerr=0.1, linewidth=1.5, zorder=5000,c='k')
 ax1.set_xlabel('[Mg/Fe]')
 plt.ylabel('[K/Fe]')
 
@@ -157,13 +158,13 @@ m=(y2-y1)/(x2-x1)
 c=y2-m*x2
 lineeqn= "y=" + str(m) + "x+" + str(c)
 
-ax1.annotate('Mg depleted population',xy=(-1.4,0.4))
-ax1.annotate('Mg normal population',xy=(-0.8,-0.3))
-ax1.annotate(lineeqn, xy= (-1.3,0.1))
-ax1.plot([x1,x2],[y1,y2],'--', zorder=0, c='k')
+
 fontP=FontProperties()
 fontP.set_size('small')
-l=ax1.legend(prop=fontP,bbox_to_anchor=[.88,.975],loc='center')
+l=ax1.legend(prop=fontP,loc='centre',bbox_to_anchor=[.493,.265])
+
+fig.savefig("KvsMg.png", dpi=300)
+fig.savefig("KvsMg.pdf", dpi=300)
 
 plt.show()
 
@@ -172,24 +173,32 @@ plt.show()
 
 fig=plt.figure(5)
 ax=plt.subplot(111)
-plt.scatter(metalicity,Lamkab,zorder=5,label=r'$LAMOST$ candidate stars',s=20)
+plt.scatter(metalicity,Lamkab,zorder=5,label='This study (LAMOST)',s=20, c='SteelBlue')
+#plt.errorbar(metalicity, Lamkab, xerr=metalicityerr, yerr=Lamkaberrquad, linestyle="None",c='SteelBlue',linewidth=1)
+(_, caps, _)=plt.errorbar(metalicity, Lamkab, xerr=metalicityerr, yerr=Lamkaberrquad, linestyle="None", linewidth=.8, capsize=4,zorder=4, c='SteelBlue')
+for cap in caps:
+    cap.set_markeredgewidth(.8)
+
+
+
 
 z = numpy.polyfit(list(metalicity), list(Lamkab), 1)
 p = numpy.poly1d(z)
-pylab.plot([-2.3,0.4],p([-2.3,0.4]),"k--")
+#pylab.plot([-2.3,0.4],p([-2.3,0.4]),"k--")
 
 zstr=[ "{:0.2f}".format(x) for x in z]
 
 lineeqn= "y=" + zstr[0] + "x+" + str(zstr[1])
-plt.annotate(lineeqn,xy=(-1.8,1.4))
+#plt.annotate(lineeqn,xy=(-1.8,1.4))
 
-plt.scatter(C_KFe,C_KK, label= " NGC 2419 Kirby & Cohen 2012", s=20, c='gray',zorder=4)
-plt.scatter(MucFe,MucK, label= "NGC 2419 Mucciarreli 2012", s=20, c='gray', marker='s',zorder=3)
-plt.scatter(ngc2808Fe,ngc2808K,label="NGC 2808 Muc 2015", marker='o', facecolor='none', edgecolor='k',zorder=2)
+plt.scatter(C_KFe,C_KK, label= " NGC 2419 (Kirby & Cohen, 2012)", s=20, c='gray',zorder=4, marker='^')
+plt.scatter(MucFe,MucK, label= "NGC 2419 (Mucciarelli+ 2012)", s=20, c='gray', marker='s',zorder=3)
+plt.scatter(ngc2808Fe,ngc2808K,label="NGC 2808 (Mucciarelli+ 2015)", marker='o', facecolor='none', edgecolor='k',zorder=2)
 
-plt.scatter(apFe,apK,s=5,zorder=1,marker='.',c='FireBrick', label="APOGEE (year?)")
+plt.scatter(apFe,apK,s=15,zorder=1,marker='o',c='#CCCCCC', label="APOGEE", alpha=0.3,lw=0)
 
-l=plt.legend(prop=fontP,loc='center',bbox_to_anchor=[.88,.975],)
+l=plt.legend(prop=fontP,loc='center',bbox_to_anchor=[.88,.975])
+#l=plt.legend(prop=fontP,loc=3)
 plt.xlabel('[Fe/H]')
 plt.ylabel('[K/Fe]')
 
@@ -198,6 +207,8 @@ y1, y2 = -0.5, 2
 ax.set_xlim(x1, x2) # apply the x-limits
 ax.set_ylim(y1, y2)
 
+fig.savefig("KvsFe.png", dpi=300)
+fig.savefig("KvsFe.pdf", dpi=300)
 
 plt.show()
 
@@ -299,7 +310,7 @@ fig, ax = plot_spectrummod(wavelengths, observed_flux, observed_ivar, model_flux
 fig.axes[1].set_ylim(0.0, 1.2)
 #fig.suptitle('J034458.82+592955.1')
 #plt.legend(bbox_to_anchor=(0.15, .5, 1.0, .102), loc=4)
-plt.legend(loc='center',bbox_to_anchor=(0.895,0.13))
+plt.legend(loc='center',bbox_to_anchor=(0.91,0.13))
 
 
 #from mpl_toolkits.axes_grid1.inset_locator import zoomed_inset_axes
@@ -307,7 +318,7 @@ from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 #axins = zoomed_inset_axes(ax, 2.5, loc=1)
 
 #Mg
-axinsMg = inset_axes(ax, 3, 1 , loc=2, bbox_to_anchor=(0.22, 0.435), bbox_transform=ax.figure.transFigure) # no zoom
+axinsMg = inset_axes(ax, 3, 1 , loc=2, bbox_to_anchor=(0.22, 0.485), bbox_transform=ax.figure.transFigure) # no zoom
 axinsMg.plot(wavelengths, observed_flux, 'k', wavelengths, model_flux, 'r')
 
 x1, x2, y1, y2 = 5150, 5200, 0.6, 1.2 # specify the limits
@@ -322,7 +333,7 @@ mark_inset(ax, axinsMg, loc1=1, loc2=2, fc="none", ec="0.5")
 
 #K
 
-AxinsK = inset_axes(ax, 3, 1 , loc=2, bbox_to_anchor=(0.5, 0.435), bbox_transform=ax.figure.transFigure) # no zoom
+AxinsK = inset_axes(ax, 3, 1 , loc=2, bbox_to_anchor=(0.57, 0.485), bbox_transform=ax.figure.transFigure) # no zoom
 AxinsK.plot(wavelengths, observed_flux, 'k', wavelengths, model_flux, 'r')
 AxinsK.xaxis.set_major_locator(ticker.MaxNLocator(4))
 x1, x2, y1, y2 = 7650, 7720, 0.6, 1.2 # specify the limits
@@ -334,7 +345,10 @@ plt.title('K')
 from mpl_toolkits.axes_grid1.inset_locator import mark_inset
 mark_inset(ax, AxinsK, loc1=1, loc2=2, fc="none", ec="0.5")
 
+fig.tight_layout()
 
+fig.savefig("posterchild.png", dpi=300)
+fig.savefig("posterchild.pdf", dpi=300)
 
 plt.draw()
 plt.show()
