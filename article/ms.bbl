@@ -20,6 +20,12 @@
 \bibitem[\protect\citeauthoryear{Alam et~al.,}{Alam et~al.}{2015}]{alam2015}
 Alam S.,  et~al., 2015, The Astrophysical Journal Supplement Series, 219, 12
 
+\bibitem[\protect\citeauthoryear{Bernstein, Shectman, Gunnels, Mochnacki  \&
+  Athey}{Bernstein et~al.}{2003}]{bernstein2003mike}
+Bernstein R.,  Shectman S.~A.,  Gunnels S.~M.,  Mochnacki S.,   Athey A.~E.,
+  2003, in Instrument Design and Performance for Optical/Infrared Ground-based
+  Telescopes. pp 1694--1705
+
 \bibitem[\protect\citeauthoryear{{Blanco-Cuaresma}, {Soubiran}, {Heiter}  \&
   {Jofr{\'e}}}{{Blanco-Cuaresma} et~al.}{2014}]{ispec}
 {Blanco-Cuaresma} S.,  {Soubiran} C.,  {Heiter} U.,   {Jofr{\'e}} P.,  2014,
@@ -105,6 +111,10 @@ Ritter C.,  Andrassy R.,  C{\^o}t{\'e} B.,  Herwig F.,  Woodward P.,  Pignatari
 \bibitem[\protect\citeauthoryear{Schlafly \& Finkbeiner}{Schlafly \&
   Finkbeiner}{2011}]{schlafly2011}
 Schlafly E.~F.,  Finkbeiner D.~P.,  2011, The Astrophysical Journal, 737, 103
+
+\bibitem[\protect\citeauthoryear{Shectman \& Johns}{Shectman \&
+  Johns}{2003}]{shectman2003magellan}
+Shectman S.~A.,  Johns M.,  2003, in Large Ground-based Telescopes. pp 910--919
 
 \bibitem[\protect\citeauthoryear{Tsujimoto \& Bekki}{Tsujimoto \&
   Bekki}{2012}]{tsujimoto2012first}
