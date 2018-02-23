@@ -37,6 +37,15 @@ Bernstein R.,  Shectman S.~A.,  Gunnels S.~M.,  Mochnacki S.,   Athey A.~E.,
 Carretta E.,  Gratton R.~G.,  Bragaglia A.,  D’Orazi V.,  Lucatello S.,
   Sollima A.,   Sneden C.,  2013, The Astrophysical Journal, 769, 40
 
+\bibitem[\protect\citeauthoryear{{Casey}}{{Casey}}{2014}]{casey2014}
+{Casey} A.~R.,  2014, PhD thesis, Australian National University,
+  \mn@doi{10.5281/zenodo.49493}
+
+\bibitem[\protect\citeauthoryear{{Castelli} \& {Kurucz}}{{Castelli} \&
+  {Kurucz}}{2004}]{castelli2004}
+{Castelli} F.,  {Kurucz} R.~L.,  2004, ArXiv Astrophysics e-prints, \href
+  {http://adsabs.harvard.edu/abs/2004astro.ph..5087C} {}
+
 \bibitem[\protect\citeauthoryear{Cohen \& Kirby}{Cohen \&
   Kirby}{2012}]{cohenkirby2012}
 Cohen J.~G.,  Kirby E.~N.,  2012, The Astrophysical Journal, 760, 86
@@ -62,6 +71,10 @@ Iliadis C.,  Karakas A.,  Prantzos N.,  Lattanzio J.,   Doherty C.,  2016, The
 \bibitem[\protect\citeauthoryear{Kato, Hachisu  \& Henze}{Kato
   et~al.}{2013}]{kato2013novae}
 Kato M.,  Hachisu I.,   Henze M.,  2013, The Astrophysical Journal, 779, 19
+
+\bibitem[\protect\citeauthoryear{{Kelson}}{{Kelson}}{2003}]{kelson2003}
+{Kelson} D.~D.,  2003, \mn@doi [\pasp] {10.1086/375502}, \href
+  {http://adsabs.harvard.edu/abs/2003PASP..115..688K} {115, 688}
 
 \bibitem[\protect\citeauthoryear{Kobayashi, Karakas  \& Umeda}{Kobayashi
   et~al.}{2011}]{kobayashi2011}
@@ -115,6 +128,9 @@ Schlafly E.~F.,  Finkbeiner D.~P.,  2011, The Astrophysical Journal, 737, 103
 \bibitem[\protect\citeauthoryear{Shectman \& Johns}{Shectman \&
   Johns}{2003}]{shectman2003magellan}
 Shectman S.~A.,  Johns M.,  2003, in Large Ground-based Telescopes. pp 910--919
+
+\bibitem[\protect\citeauthoryear{{Sneden}}{{Sneden}}{1973}]{sneden}
+{Sneden} C.~A.,  1973, PhD thesis, THE UNIVERSITY OF TEXAS AT AUSTIN.
 
 \bibitem[\protect\citeauthoryear{Tsujimoto \& Bekki}{Tsujimoto \&
   Bekki}{2012}]{tsujimoto2012first}
