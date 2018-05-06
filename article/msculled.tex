@@ -177,7 +177,7 @@ These filters identified 384 unique stars. We visually inspected every candidate
 
 We note that although telluric absorption would usually swamp the K doublet lines, the contributions of telluric features have been removed from \lamost\ spectra as part of the data reduction process conducted by \lamost\ \citep{luo2016vizier}. Subsequent examination of the radial velocities for the (manually vetted) sample showed no behaviour indicating that the [K/Fe] over-abundances identified were due telluric absorption.
 
-We estimated [K/Fe] abundance ratios for all candidates by synthesising spectra to account for the flux residuals \citep{marcs,sme,vald,ispec}. We assume that absorption due to metals is accounted for by \tc, and deviations in flux around the potassium doublet are due to an increased [K/Fe] with respect to the model. We include a conservative 0.2\,dex systematic error floor  applied in quadrature with the fitting errors to account for some component of the flux differences not being from the abundance of K, but instead due to noise in the \lamost\ spectra. We applied the same method to estimate [Na/Fe] from \lamost\ spectra. We note that while enhancements in [K/Fe] or [Na/Fe] can be estimated by synthesising the flux residuals, we cannot easily estimate [Mg/Fe] depletions in the same manner because it is difficult to separate the flux contribution of [Mg/Fe] from [$\alpha$/Fe] in the data-driven model. For this reason, we will adopt [$\alpha$/Fe] as a conservative upper limit for [Mg/Fe].
+We estimated [K/Fe] abundance ratios for all candidates by synthesising spectra to account for the flux residuals \citep{marcs,sme,vald,ispec}. We assume that absorption due to metals is accounted for by \tc, and deviations in flux around the potassium doublet are due to an increased [K/Fe] with respect to the model. We include a conservative 0.2\,dex systematic error floor applied in quadrature with the fitting errors to account for some component of the flux differences not being from the abundance of K, but instead due to noise in the \lamost\ spectra. We applied the same method (and error floor) to estimate [Na/Fe] from \lamost\ spectra. We note that while enhancements in [K/Fe] or [Na/Fe] can be estimated by synthesising the flux residuals, we cannot easily estimate [Mg/Fe] depletions in the same manner because it is difficult to separate the flux contribution of [Mg/Fe] from [$\alpha$/Fe] in the data-driven model. For this reason, we will adopt [$\alpha$/Fe] as a conservative upper limit for [Mg/Fe].
 
 %\todo{The presence of Na enhancements were visually estimated from the sample of 112 candidate stars' flux spectra. Flux-based estimates placed at most 40 of the 112 stars (35\%) as being likely Na enhanced targets.} Na abundances calculated from the \lamost\ spectra later revealed 30\% of the target stars with [Na/Fe] above 0.5\,dex. \todo{@andy add anything specific to Na abundance methods from LAMOST}.
 
@@ -213,6 +213,72 @@ High resolution spectra of three of the candidate stars selected based on observ
     \label{mhist}
 \end{figure}
 
+
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Selection effects}
+\label{sec:selectioneffects}
+
+Our sample of \lamost\ giants carries with it certain selection effects from both the \apogee\ DR12 and \lamost\ samples. For example, metal-poor stars with [Fe/H] $\lesssim-2$ are mostly absent from our sample because they were too dissimilar from the training stars for label transfer from \apogee. Similarly, the target selection process for \lamost\ is not easily invertible so we do not consider selection effects present in \lamost\ beyond comparing the candidate stars' metallicity distribution with that of \cite{ho2017}. We find that the frequency of Mg--K stars is consistent (within the errors) of being flat with metallicity. 
+
+Figure \ref{loggTeffFeh} shows that the candidate stars are distributed across the entire giant branch, implying that the abundance signature is not associated with any single stage in evolution and that \todo{the chemical pattern we observe is not due to a violation of the assumption of local thermodynamic equilibrium}.
+%@ANDY is this a comment we want to make? If we make no assumptions about LTE... then I feel like we shouldn't be saying this last part, as it reads like: We made an assumption, and hey look its not violated.
+
+\begin{figure}
+	\includegraphics[width=\columnwidth]{loggTeffFeH.png}
+    \caption{Effective temperature, surface gravity and [Fe/H] as per label transfer by the \tc for LAMOST, overlaid with the 112 candidates.}
+    \label{loggTeffFeh}
+\end{figure}
+
+
+\subsection{Association with known globular clusters}
+\label{sec:globclustasoc}
+We cross-matched our candidates with the positions of all known globular clusters \citep{harris1996}. The spread in metallicity (Figure \ref{mhist}) is consistent with all candidates being field stars. The distribution reflects the original \LamostGiants\ sample of giants from which the candidates were selected.
+No candidates have [Fe/H] $\approx -2$, the approximate metallicity of NGC 2419, nor are there many stars with [Fe/H] $\approx -1$, the metallicity of NGC 2808. Thus, we conclude that the candidates are not restricted to any specific metallicity, particularly not just to the metallicities of NGC 2419 and NGC 2808.
+
+
+\subsection{Detailed chemical abundances}
+\label{sec:abundances}
+
+\subsubsection{[Na/Fe]}
+
+\begin{figure}
+	\includegraphics[width=\columnwidth]{NavsFeh.png}
+    \caption{[Na/Fe] vs [Fe/H] for the candidate stars.}
+    \label{NavsFeh}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=\columnwidth]{Navsb.png}
+    \caption{[Na/Fe] vs galactic latitude for the candidate stars.}
+    \label{Navsb}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=\columnwidth]{Navsradvel.png}
+    \caption{[Na/Fe] vs radial velocity for the candidate stars.}
+    \label{Navsradvel}
+\end{figure}
+Upon examining [Na/Fe] as estimated from the \lamost\ spectra, using the doublet around 5850 \AA, two distinct populations were observed: one population making up approximately 30 percent of the sample with [Na/Fe] > 0.5, significantly higher than typical Galactic abundances of [Na/Fe] $\lesssim$ 0.3 \citep{kobayashi2011}, and a second with [Na/Fe] consistent with typical Galactic abundances. The two groups can be clearly distinguished in Figure \ref{NavsFeh}, which also shows abundances of [Na/Fe] versus [Fe/H] from the APOGEE survey for comparison.
+
+The high [Na/Fe] abundance ratios we observe are possibly due to the effect of interstellar dust contributing, as nearly every star with apparently enriched [Na/Fe] showed notably higher E(B-V) \citep{schlafly2011}, suggesting that the stellar absorption lines are blended with interstellar dust absorption. This is supported by Figures \ref{Navsb} and \ref{Navsradvel}, which show the [Na/Fe] distribution with respect to galactic latitude and the radial velocity. It is apparent that almost all of the stars in the anomalous group lie close to the disk of the galaxy, with radial velocities at least somewhat close to zero.
+However, further investigation revealed no evidence of a diffuse interstellar band (DIB) impacting LAMOST spectra around the Na doublet (nor around the Mg or K lines). It is worth mentioning briefly that the modelling work of \cite{prantzos2017} predicted an anti-correlation between Na and K in a 180\,MK hydrogen burning environment, while observational data for NGC 2808 implies a positive correlation between Na and K.
+
+\subsubsection{[Mg/Fe] and [K/Fe]}
+
+\begin{figure}
+	\includegraphics[width=\columnwidth]{Kvslogg.png}
+    \caption{[K/Fe] versus $\logg$} 
+    \label{KvsMg}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=\columnwidth]{KvsTeff.png}
+    \caption{[K/Fe] versus $\teff$} 
+    \label{KvsMg}
+\end{figure}
+
 \begin{figure}
 	\includegraphics[width=\columnwidth]{KvsMg.png}
     \caption{[K/Fe] vs [$\alpha$/Fe] for the candidate stars, overlaid with [K/Fe] vs [Mg/Fe] abundances for NGC 2419 and NGC 2808 \citep{cohenkirby2012, mucciarelli2012, mucciarelli2015}. See Section \ref{sec:method} for discussion on the use of [$\alpha$/Fe] as a proxy for [Mg/Fe].} 
@@ -224,26 +290,6 @@ High resolution spectra of three of the candidate stars selected based on observ
     \caption{[K/Fe] vs [Fe/H] for the candidate stars, overlaid with [K/Fe] vs [Fe/H] for NGC 2419 and NGC 2808 \citep{cohenkirby2012, mucciarelli2012, mucciarelli2015}. Metalicities for NGC 2808 are taken as the average metalicity for the cluster from \citet{harris1996}, as individual metallicities for these stars were not available.}
     \label{KvsFe}
 \end{figure}
-
-\section{Discussion}
-\label{sec:discussion}
-
-\subsection{Selection effects}
-\label{sec:selectioneffects}
-
-Our sample of \lamost\ giants carries with it certain selection effects from both the \apogee\ DR12 and \lamost\ samples. For example, metal-poor stars with [Fe/H] $\lesssim-2$ are mostly absent from our sample because they were too dissimilar from the training stars for label transfer from \apogee. Similarly, the target selection process for \lamost\ is not easily invertible so we do not consider selection effects present in \lamost\ beyond comparing the candidate stars' metallicity distribution with that of \cite{ho2017}. We find that the frequency of Mg--K stars is consistent (within the errors) of being flat with metallicity. We also note that our candidate stars are distributed across the entire giant branch, implying that the abundance signature is not associated with any single stage in evolution and that the chemical pattern we observe is not due to a violation of the assumption of local thermodynamic equilibrium.
-
-\subsection{Association with known globular clusters}
-\label{sec:globclustasoc}
-We cross-matched our candidates with the positions of all known globular clusters \citep{harris1996}. The spread in metallicity (Figure \ref{mhist}) is consistent with all candidates being field stars. The distribution reflects the original \LamostGiants\ sample of giants from which the candidates were selected.
-No candidates have [Fe/H] $\approx -2$, the approximate metallicity of NGC 2419, nor are there many stars with [Fe/H] $\approx -1$, the metallicity of NGC 2808. Thus, we conclude that the candidates are not restricted to any specific metallicity, particularly not just to the metallicities of NGC 2419 and NGC 2808.
-
-
-\subsection{Detailed chemical abundances}
-\label{sec:abundances}
-
-Upon examining [Na/Fe] as estimated from the \lamost\ spectra, using the doublet around 5850 \AA, two distinct populations were observed: one population making up approximately 30 percent of the sample with [Na/Fe] > 0.5, significantly higher than typical Galactic abundances of [Na/Fe] $\lesssim$ 0.3 \citep{kobayashi2011}, and a second with [Na/Fe] consistent with typical Galactic abundances. However, the high [Na/Fe] abundance ratios we observe are possibly due to the effect of interstellar
-dust contributing, as nearly every star with apparently enriched [Na/Fe] showed notably higher E(B-V) \citep{schlafly2011}, suggesting that the stellar absorption lines are blended with interstellar dust absorption. However, further investigation revealed no evidence of a diffuse interstellar band (DIB) impacting spectra around the Na doublet, nor Mg or K. It is worth mentioning briefly that the modelling work of \cite{prantzos2017} predicted an anti-correlation between Na and K in a 180\,MK hydrogen burning environment, while observational data for NGC 2808 implies a positive correlation between Na and K.
 
 Figure \ref{KvsMg} shows [K/Fe]  for the 112 star sample plotted against $[\alpha$/Fe] and overlaid with [K/Fe] from NGC 2419 and NGC 2808 plotted against [Mg/Fe] \citep{cohenkirby2012, mucciarelli2012, mucciarelli2015}. As described in Section \ref{sec:method}, we adopt [$\alpha$/Fe] as an upper limit for [Mg/Fe]. [K/Fe] vs [Mg/Fe] for the three stars from the sample observed using Magellan/MIKE and for over 60000 stars from APOGEE \citep{alam2015} is also shown. 
 %The use of $[\alpha$/Fe] to position the sample in \ref{KvsMg} is supported by the [Mg/Fe] measurements from the high-resolution spectra, which vary less than 0.1\,dex from the level of $[\alpha$/Fe] for each of the relevant stars in the \lamost\ data. However, for the bulk of the sample decoupling [Mg/Fe] from $[\alpha$/Fe] is impossible, and so in general  we are unable to draw firm conclusions as to whether the sample exhibits anomalously low [Mg/Fe].
