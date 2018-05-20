@@ -165,7 +165,7 @@ Here we use \lamost\ spectra to conduct the largest search to date for stars enh
 \subsection{Candidate selection from \lamost\ spectra}
 We used a set of \LamostGiants\ giant stars from the second \lamost\ data release \citep{luo2016vizier}. The spectra were placed at rest-frame on a common wavelength sampling from 3905\,\AA\ to 9000\,\AA\ and normalised by \citet{ho2017}. \tc\ \citep{ness2016,ho2017} was used to estimate effective temperature $\teff$, surface gravity $\logg$, metallicity [Fe/H], and mean $\alpha$-element abundance relative to iron [$\alpha$/Fe] using 9,952 stars in common between \lamost\ and the \apogee\ \citep{alam2015} survey. Unless otherwise stated, these transferred labels are those referred to throughout this study. For details regarding the preparatory work, model generation, and label transfer between the \apogee\ and \lamost\ surveys we direct the reader to \citet{ho2017}. 
 
-We identified potential Mg-depleted and K-enhanced stars by searching for significant deviations in flux residuals. The flux residuals were calculated as the difference between the normalised \lamost\ flux and the best-fitting data-driven model flux from \tc\ ( $f_{\textrm{residual}} = f_{\textrm{data}} - f_{\textrm{model}}$). A positive residual implies a higher observed normalised flux than expected by the model (less stellar absorption than predicted by the model), while a negative residual implies a lower observed normalised flux than expected (more stellar absorption than predicted by the model). Figure \ref{posterchild} shows the \lamost\ spectrum and best-fitting model from \tc\ for J034458.82+592955.1, a Mg--K candidate star we identified, as well as the observed spectra for J163532.2+234847.3, the star with closest stellar parameters to our Mg--K candidate star, J034458.82+592955.1. 
+We identified potential Mg-depleted and K-enhanced stars by searching for significant deviations in flux residuals. The flux residuals were calculated as the difference between the normalised \lamost\ flux and the best-fitting data-driven model flux from \tc\ ( $f_{\textrm{residual}} = f_{\textrm{data}} - f_{\textrm{model}}$). A positive residual implies a higher observed normalised flux than expected by the model (less stellar absorption than predicted by the model), while a negative residual implies a lower observed normalised flux than expected (more stellar absorption than predicted by the model). Figure \ref{posterchild} shows the \lamost\ spectrum and best-fitting model from \tc\ for J075043.1+204658, a Mg--K candidate star we identified, as well as the observed spectra for J055435.4+152946, the star with closest stellar parameters to our Mg--K candidate star, J075043.1+204658. 
 
 We fit a Gaussian profile to the flux residuals for all three absorption lines in the Mg triplet (5167\,\AA, 5172\,\AA, 5184\,\AA) as well as the K doublet (7665\,\AA, 7699\,\AA) for all \LamostGiants\ giants. For each star we recorded the amplitudes, widths (standard deviations) and wavelength (mean) about which the Gaussian profiles were fit. The amplitude was used as the measure of the discrepancy from the model spectra, and is analogous to the depth of the absorption line, and linearly dependent on the equivalent width. %The relationship between equivalent width ($EW$), the amplitude ($A$) and the Gaussian width ($\sigma$) is given by $EW=\frac{2\pi A}{\sigma}$.
 
@@ -203,22 +203,22 @@ We acquired high-resolution spectra of three of our candidates as ancillary targ
 \begin{subfigure}{1\textwidth}
 \centering
 \includegraphics[width=\textwidth=1]{similarstarsplot.png}
-\caption{Mg-depleted, K-enhanced candidate J034458.82+592955.1. $\teff$=4812, $\logg$=2.66, [Fe/H]=0.058}
+\caption{Mg-depleted, K-enhanced candidate J075043.1+204658. $\teff$=4812, $\logg$=2.66, [Fe/H]=0.058}
 \end{subfigure}
 
 \begin{subfigure}{1\textwidth}
 \centering
 \includegraphics[width=\textwidth=1]{posterchild.png}
-\caption{Mg-depleted, K-enhanced candidate J034458.82+592955.1. $\teff$=4812, $\logg$=2.66, [Fe/H]=0.058}
+\caption{Mg-depleted, K-enhanced candidate J075043.1+204658. $\teff$=4812, $\logg$=2.66, [Fe/H]=0.058}
 \end{subfigure}
 
 \begin{subfigure}{1\textwidth}
 \centering
 \includegraphics[width=\textwidth=1]{postermimic.png}
-\caption{Mg-normal, K-normal star J163532.2+234847.3. $\teff$=4809, $\logg$=2.66, [Fe/H]=0.062}
+\caption{Mg-normal, K-normal star J055435.4+152946. $\teff$=4809, $\logg$=2.66, [Fe/H]=0.062}
 \end{subfigure}
 
-\caption{Normalised \lamost\ spectrum for the Mg-depleted and K-enhanced candidate J034458.82+592955.1 and for the comparable star J163532.2+234847.35. J163532.2+234847.35 was selected by minimising the similarity norm defined as $n=(\frac{\Delta \text{T}_{\text{eff}}}{1000})^2 +\Delta \text{logg} ^2 + \Delta \text{[Fe/H]}^2$. The data are shown in black and the best-fitting data-driven model from \tc\ is in red. We zoom in around the magnesium triplet and potassium doublet, which we used to identify Mg--K candidates. Note that $[\alpha/{\rm Fe}]$ is a label in \tc\ model used and J034458.82+592955.1 shows Mg depletions relative to the estimated [$\alpha$/Fe] value.}
+\caption{Normalised \lamost\ spectrum for the Mg-depleted and K-enhanced candidate J075043.1+204658 and for the comparable star J055435.4+152946. J055435.4+152946 was selected by minimising the similarity norm defined as $n=(\frac{\Delta \text{T}_{\text{eff}}}{1000})^2 +\Delta \text{logg} ^2 + \Delta \text{[Fe/H]}^2$. The data are shown in black and the best-fitting data-driven model from \tc\ is in red. We zoom in around the magnesium triplet and potassium doublet, which we used to identify Mg--K candidates. Note that $[\alpha/{\rm Fe}]$ is a label in \tc\ model used and J075043.1+204658 shows Mg depletions relative to the estimated [$\alpha$/Fe] value.}
 \label{posterchild}
 \end{figure*}
 
@@ -226,7 +226,7 @@ We acquired high-resolution spectra of three of our candidates as ancillary targ
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{mhist.png}
-    \caption{Metallicity distribution for all 112 candidate stars identified with K-enhancement and Mg-depletion.}
+    \caption{Metallicity distribution for all 112 candidate stars identified with K-enhancement and Mg-depletion. The stars apparently exist in significant numbers across a wide spread of metalicity.}
     \label{mhist}
 \end{figure}
 
@@ -243,24 +243,29 @@ Figure \ref{loggTeffFeh} shows that the identified candidates are distributed ac
 
 
 %The independence of the calculated [K/Fe] abundances from these effects is demonstrated in Figures \ref{Kvslogg} and \ref{KvsTeff}, which show that no relationship exists between [K/Fe] for the identified candidate stars and $\logg$ or $\teff$. 
-%@ANDY is this a comment we want to make? If we make no assumptions about LTE... then I feel like we shouldn't be saying this last part, as it reads like: We made an assumption, and hey look its not violated.
+
+
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{loggTeffFeH.png}
-    \caption{Effective temperature, surface gravity and [Fe/H] as per label transfer by the \tc for LAMOST, overlaid with the 112 candidates.}
+    \caption{Effective temperature, surface gravity and [Fe/H] as per label transfer by the \tc\ for LAMOST, overlaid with the 112 candidates. The sample stars can clearly be seen to be spread out all along the giant branch.}
     \label{loggTeffFeh}
 \end{figure}
 
 \begin{figure}
-	\includegraphics[width=\columnwidth]{Kvslogg.png}
-    \caption{[K/Fe] versus $\logg$} 
-    \label{Kvslogg}
-\end{figure}
 
-\begin{figure}
-	\includegraphics[width=\columnwidth]{KvsTeff.png}
-    \caption{[K/Fe] versus $\teff$} 
-    \label{KvsTeff}
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\columnwidth]{KvsTeff.png}
+\caption{[K/Fe] versus $\teff$}
+\label{KvsTeff}
+\end{subfigure}
+
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=\columnwidth]{Kvslogg.png}
+\caption{[K/Fe] versus $\logg$}
+\label{Kvslogg}
+\end{subfigure}
+\caption{No relationship is evident between [K/Fe] and either $\logg$ or $\teff$, as expected due to the use of the data-driven model.}
 \end{figure}
 
 \subsection{Association with known globular clusters}
@@ -274,26 +279,34 @@ No candidates have [Fe/H] $\approx -2$, the approximate metallicity of NGC 2419,
 
 \subsubsection{[Na/Fe]}
 
-\begin{figure}
+\begin{figure*}
+\begin{subfigure}{0.5\textwidth}
 	\includegraphics[width=\columnwidth]{NavsFeh.png}
     \caption{[Na/Fe] vs [Fe/H] for the candidate stars.}
     \label{NavsFeh}
-\end{figure}
+\end{subfigure}
 
-\begin{figure}
+\begin{subfigure}{0.5\textwidth}
 	\includegraphics[width=\columnwidth]{Navsb.png}
     \caption{[Na/Fe] vs galactic latitude for the candidate stars.}
     \label{Navsb}
-\end{figure}
-
-\begin{figure}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
 	\includegraphics[width=\columnwidth]{Navsradvel.png}
     \caption{[Na/Fe] vs radial velocity for the candidate stars.}
     \label{Navsradvel}
-\end{figure}
+\end{subfigure}
+%\end{figure*}
+%\begin{figure*}
+%\ContinuedFloat
+
+\caption{A strong bimodality in [Na/Fe] abundances of the candidate stars is observed, with a significant population displaying anomolously high abundances. Due to the apparent near-exclusivity of this population within the disk of the galaxy, and their notably higher E(B-V) values \citep{schlafly2011}, this phenomena is almost certainly due to interstellar dust.}
+\end{figure*}
+
+
 The modelling work of \cite{prantzos2017} predicted an anti-correlation between Na and K in a 180\,MK hydrogen burning environment, while observational data for NGC 2808 implies a positive correlation between Na and K. Upon examining the [Na/Fe] abundance ratios we estimated from \lamost\ spectra of our candidates, based on the doublet around 5850 \AA, we observed two distinct populations: one population making up approximately 30 percent of the sample with [Na/Fe] $> 0.5$, significantly higher than typical Galactic abundances of [Na/Fe] $\lesssim$ 0.3 \citep{kobayashi2011}, and a second population with [Na/Fe] abundance ratios consistent with typical Galactic levels. The two groups can be clearly distinguished in Figure \ref{NavsFeh}, where for comparison we also show the abundances of [Na/Fe] versus [Fe/H] from the \apogee\ survey.
 
-However, we concluded that the high [Na/Fe] abundance ratios we derive are likely due to interstellar dust contributing. Nearly every star with apparently enriched [Na/Fe] showed notably higher E(B-V) \citep{schlafly2011}, and all but four stars with high [Na/Fe] are found in the disk of our Galaxy, at low absolute galactic latitudes (Figures \ref{Navsb} and \ref{Navsradvel}). Thus, we find no evidence for genuine  enhancement of [Na/Fe] among our Mg--K candidates.
+However, we concluded that the high [Na/Fe] abundance ratios we derive are likely due to interstellar dust contributing. Nearly every star with apparently enriched [Na/Fe] showed notably higher E(B-V) \citep{schlafly2011}, and all but four stars with high [Na/Fe] are found in the disk of our Galaxy, at low absolute galactic latitudes and velocities (Figures \ref{Navsb} and \ref{Navsradvel}). Thus, we find no evidence for genuine  enhancement of [Na/Fe] among our Mg--K candidates.
 %suggesting that the stellar absorption lines are blended with interstellar dust absorption. This is supported by Figures \ref{Navsb} and \ref{Navsradvel}, which show the [Na/Fe] distribution with respect to galactic latitude and the radial velocity. 
 %It is apparent that almost all of the stars in the anomalous group lie close to the disk of the galaxy, with radial velocities at least somewhat close to zero.
 %However, further investigation revealed no evidence of a diffuse interstellar band (DIB) impacting LAMOST spectra around the Na doublet (nor around the Mg or K lines).
@@ -303,13 +316,13 @@ However, we concluded that the high [Na/Fe] abundance ratios we derive are likel
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{KvsMg.png}
-    \caption{[K/Fe] vs [$\alpha$/Fe] for the candidate stars, overlaid with [K/Fe] vs [Mg/Fe] abundances for NGC 2419 and NGC 2808 \citep{cohenkirby2012, mucciarelli2012, mucciarelli2015}. See Section \ref{sec:method} for discussion on the use of [$\alpha$/Fe] as a proxy for [Mg/Fe].} 
+    \caption{[K/Fe] vs [$\alpha$/Fe] for the candidate stars, overlaid with [K/Fe] vs [Mg/Fe] abundances for NGC 2419 and NGC 2808 \citep{cohenkirby2012, mucciarelli2012, mucciarelli2015}. Note that in principle, [$\alpha/Fe$] acts only as an upper limit for [Mg/Fe], and is used as such for our sample in this figure due to difficulties in calculating reliable [Mg/Fe] from \lamost data.}
     \label{KvsMg}
 \end{figure}
-
+ %See Section \ref{sec:method} for discussion on the use of [$\alpha$/Fe] as a proxy for [Mg/Fe].} 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{KvsFe.png}
-    \caption{[K/Fe] vs [Fe/H] for the candidate stars, overlaid with [K/Fe] vs [Fe/H] for NGC 2419 and NGC 2808 \citep{cohenkirby2012, mucciarelli2012, mucciarelli2015}. Metalicities for NGC 2808 are taken as the average metalicity for the cluster from \citet{harris1996}, as individual metallicities for these stars were not available.}
+    \caption{[K/Fe] vs [Fe/H] for the candidate stars, overlaid with [K/Fe] vs [Fe/H] for NGC 2419 and NGC 2808 \citep{cohenkirby2012, mucciarelli2012, mucciarelli2015}.}
     \label{KvsFe}
 \end{figure}
 
@@ -344,7 +357,7 @@ If we allow a brief venture into the realm of speculation, the trend of [K/Fe] w
 %Significantly enhanced [K/Fe] is rare; significantly enhanced [K/Fe] without an accompanying depletion of [Mg/Fe] is unknown. The candidate stars are also spread across a wide range of metallicities.
 
 A recent attempt to replicate the Mg--K abundance signature in NGC 2419 by \cite{iliadis2016} also examined abundances of Si, Sc, Ca, Ti and V, elements reported as having weak correlations with Mg by \cite{cohenkirby2012}. The study aimed to constrain the temperatures and densities required to produce the chemical signature, and thereby provide insight into potential polluters.
-Unless extremely high densities were invoked (i.e., $>\,10^8\,{\rm g\,cm}^{-3}$), it was found that temperatures between 100 and 200\,MK were necessary \todo{to produce K in net quantities?}, depending on the density. This constraint rules out many pollution sites, including core and shell burning of low-mass stars, high-mass and super-massive stars, and normal AGB stars. However, super-AGB (SAGB) stars were considered as potential candidates, with only a relatively small (roughly 10 to 20 MK) increase in temperature at the bottom of the envelope required to fall in the acceptable band of parameter space identified, implying that it is possible that the conditions for K production through the Ar-K reaction pathway could be met in some SAGB stars. The other potential candidates identified were novae, although the lack of detailed models of white dwarf accretion of metal-poor material adds considerable uncertainty. Based on current nova frequency in globular clusters determined by \cite{kato2013novae}, \cite{iliadis2016} conclude that the amount of material that would be produced by novae is at most 1 percent of the total required mass to pollute 30 percent of NGC 2419.
+Unless extremely high densities were invoked (i.e., $>\,10^8\,{\rm g\,cm}^{-3}$), it was found that temperatures between 100 and 200\,MK (depending on the density) were necessary to produce sufficient K to match the abundances observed. This constraint rules out many pollution sites, including core and shell burning of low-mass stars, high-mass and super-massive stars, and normal AGB stars. However, super-AGB (SAGB) stars were considered as potential candidates, with only a relatively small (roughly 10 to 20 MK) increase in temperature at the bottom of the envelope required to fall in the acceptable band of parameter space identified, implying that it is possible that the conditions for K production through the Ar-K reaction pathway could be met in some SAGB stars. The other potential candidates identified were novae, although the lack of detailed models of white dwarf accretion of metal-poor material adds considerable uncertainty. Based on current nova frequency in globular clusters determined by \cite{kato2013novae}, \cite{iliadis2016} conclude that the amount of material that would be produced by novae is at most 1 percent of the total required mass to pollute 30 percent of NGC 2419.
 
 Another proposed  polluter candidate is a pair-instability super nova \citep[PISN;][]{carretta2013}. Unique to extremely massive Population III stars, these events involve the total destruction of the star, with no remnant left behind. The main argument for this idea is that the extreme rarity of these events, coupled with the huge masses of processed material released, could allow for the abundance signature in NGC 2419 to be the result of a single event, which would explain why a similar abundance trend is not seen in any other globular clusters. However, the signature odd-even proton number abundance pattern associated with PISNs, where odd Z elements are enhanced and even Z elements are depleted, appears absent from NGC 2419 \citep{carretta2013, cohenkirby2012}.
 
