@@ -165,7 +165,7 @@ Here we use \lamost\ spectra to conduct the largest search to date for stars enh
 \subsection{Candidate selection from \lamost\ spectra}
 We used a set of \LamostGiants\ giant stars from the second \lamost\ data release \citep{luo2016vizier}. The spectra were placed at rest-frame on a common wavelength sampling from 3905\,\AA\ to 9000\,\AA\ and normalised by \citet{ho2017}. \tc\ \citep{ness2016,ho2017} was used to estimate effective temperature $\teff$, surface gravity $\logg$, metallicity [Fe/H], and mean $\alpha$-element abundance relative to iron [$\alpha$/Fe] using 9,952 stars in common between \lamost\ and the \apogee\ \citep{alam2015} survey. Unless otherwise stated, these transferred labels are those referred to throughout this study. For details regarding the preparatory work, model generation, and label transfer between the \apogee\ and \lamost\ surveys we direct the reader to \citet{ho2017}. 
 
-We identified potential Mg-depleted and K-enhanced stars by searching for significant deviations in flux residuals. The flux residuals were calculated as the difference between the normalised \lamost\ flux and the best-fitting data-driven model flux from \tc\ ( $f_{\textrm{residual}} = f_{\textrm{data}} - f_{\textrm{model}}$). A positive residual implies a higher observed normalised flux than expected by the model (less stellar absorption than predicted by the model), while a negative residual implies a lower observed normalised flux than expected (more stellar absorption than predicted by the model). Figure \ref{posterchild} shows the \lamost\ spectrum and best-fitting model from \tc\ for J075043.1+204658, a Mg--K candidate star we identified, as well as the observed spectra for J055435.4+152946, the star with closest stellar parameters to our Mg--K candidate star, J075043.1+204658. 
+We identified potential Mg-depleted and K-enhanced stars by searching for significant deviations in flux residuals. The flux residuals were calculated as the difference between the normalised \lamost\ flux and the best-fitting data-driven model flux from \tc\ ( $f_{\textrm{residual}} = f_{\textrm{data}} - f_{\textrm{model}}$). A positive residual implies a higher observed normalised flux than expected by the model (less stellar absorption than predicted by the model), while a negative residual implies a lower observed normalised flux than expected (more stellar absorption than predicted by the model). Figure \ref{posterchild} shows the \lamost\ spectrum and best-fitting model from \tc\ for J075043.1+204658, a Mg--K candidate star we identified, as well as the observed spectra for J053622.4+223600, the star with closest stellar parameters to our Mg--K candidate star, J075043.1+204658. 
 
 We fit a Gaussian profile to the flux residuals for all three absorption lines in the Mg triplet (5167\,\AA, 5172\,\AA, 5184\,\AA) as well as the K doublet (7665\,\AA, 7699\,\AA) for all \LamostGiants\ giants. For each star we recorded the amplitudes, widths (standard deviations) and wavelength (mean) about which the Gaussian profiles were fit. The amplitude was used as the measure of the discrepancy from the model spectra, and is analogous to the depth of the absorption line, and linearly dependent on the equivalent width. %The relationship between equivalent width ($EW$), the amplitude ($A$) and the Gaussian width ($\sigma$) is given by $EW=\frac{2\pi A}{\sigma}$.
 
@@ -203,22 +203,22 @@ We acquired high-resolution spectra of three of our candidates as ancillary targ
 \begin{subfigure}{1\textwidth}
 \centering
 \includegraphics[width=\textwidth=1]{similarstarsplot.png}
-\caption{Mg-depleted, K-enhanced candidate J075043.1+204658. $\teff$=4812, $\logg$=2.66, [Fe/H]=0.058}
+\caption{Overlaid \lamost\ spectra for candidate J075043.1+204658 and J053622.4+223600, a star with similar stellar parameters}
 \end{subfigure}
 
 \begin{subfigure}{1\textwidth}
 \centering
 \includegraphics[width=\textwidth=1]{posterchild.png}
-\caption{Mg-depleted, K-enhanced candidate J075043.1+204658. $\teff$=4812, $\logg$=2.66, [Fe/H]=0.058}
+\caption{Mg-depleted, K-enhanced candidate J075043.1+204658. $\teff$=4795, $\logg$=2.53, [Fe/H]=-0.47}
 \end{subfigure}
 
 \begin{subfigure}{1\textwidth}
 \centering
 \includegraphics[width=\textwidth=1]{postermimic.png}
-\caption{Mg-normal, K-normal star J055435.4+152946. $\teff$=4809, $\logg$=2.66, [Fe/H]=0.062}
+\caption{Mg-normal, K-normal star J053622.4+223600. $\teff$=4804 K, $\logg$=2.53, [Fe/H]=0.062}
 \end{subfigure}
 
-\caption{Normalised \lamost\ spectrum for the Mg-depleted and K-enhanced candidate J075043.1+204658 and for the comparable star J055435.4+152946. J055435.4+152946 was selected by minimising the similarity norm defined as $n=(\frac{\Delta \text{T}_{\text{eff}}}{1000})^2 +\Delta \text{logg} ^2 + \Delta \text{[Fe/H]}^2$. The data are shown in black and the best-fitting data-driven model from \tc\ is in red. We zoom in around the magnesium triplet and potassium doublet, which we used to identify Mg--K candidates. Note that $[\alpha/{\rm Fe}]$ is a label in \tc\ model used and J075043.1+204658 shows Mg depletions relative to the estimated [$\alpha$/Fe] value.}
+\caption{Normalised \lamost\ spectrum for the Mg-depleted and K-enhanced candidate J075043.1+204658 and for the comparable star J053622.4+223600. J053622.4+223600 was selected by minimising the similarity norm defined as $n=(\frac{\Delta \text{T}_{\text{eff}}}{1000})^2 +\Delta \text{logg} ^2 + \Delta \text{[Fe/H]}^2$. The data are shown in black and the best-fitting data-driven model from \tc\ is in red. We zoom in around the magnesium triplet and potassium doublet, which we used to identify Mg--K candidates. Note that $[\alpha/{\rm Fe}]$ is a label in \tc\ model used and J075043.1+204658 shows Mg depletions relative to the estimated [$\alpha$/Fe] value.}
 \label{posterchild}
 \end{figure*}
 
@@ -316,7 +316,7 @@ However, we concluded that the high [Na/Fe] abundance ratios we derive are likel
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{KvsMg.png}
-    \caption{[K/Fe] vs [$\alpha$/Fe] for the candidate stars, overlaid with [K/Fe] vs [Mg/Fe] abundances for NGC 2419 and NGC 2808 \citep{cohenkirby2012, mucciarelli2012, mucciarelli2015}. Note that in principle, [$\alpha/Fe$] acts only as an upper limit for [Mg/Fe], and is used as such for our sample in this figure due to difficulties in calculating reliable [Mg/Fe] from \lamost data.}
+    \caption{[K/Fe] vs [$\alpha$/Fe] for the candidate stars, overlaid with [K/Fe] vs [Mg/Fe] abundances for NGC 2419 and NGC 2808 \citep{cohenkirby2012, mucciarelli2012, mucciarelli2015}. Note that in principle, [$\alpha$/Fe] acts only as an upper limit for [Mg/Fe], and is used as such for our sample in this figure due to difficulties in calculating reliable [Mg/Fe] from \lamost data.}
     \label{KvsMg}
 \end{figure}
  %See Section \ref{sec:method} for discussion on the use of [$\alpha$/Fe] as a proxy for [Mg/Fe].} 
