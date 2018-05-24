@@ -193,9 +193,37 @@ We assume that deviations in flux around the potassium doublet are due to an inc
 
 
 \subsection{Follow-up observations with Magellan/MIKE}
-We acquired high-resolution spectra of three of our candidates as ancillary targets to an existing observing campaign. The three targets (J075043.12+204658.0, J120032.60+024438.2 and J091825.49+172114.5) were selected based on their observability from Las Campanas Observatory, and we used the Magellan Inamori Kyocera Echelle (MIKE) spectrograph on the Magellan Clay telescope \citep{shectman2003magellan,bernstein2003mike}. Exposure times were calculated to achieve a S/N of 30 per pixel at 450\,nm, sufficient to verify the K-enriched and Mg-poor nature of these stars. We reduced the data using the \texttt{CarPy} package \citep{kelson2003}. We used smoothing spline functions to continuum-normalize individual echelle orders, before combining them to produce a continuum-normalized spectrum that is contiguous from 350\,nm to 950\,nm. With the stellar parameters from \lamost, we calculated [K/Fe] and [Mg/Fe] abundances from individual atomic lines by measuring equivalent widths with Gaussian absorption profiles \citep{castelli2004,sneden,casey2014}. From the Magellan/MIKE spectra we confirmed that the K lines in these candidates were unaffected by telluric contamination. The estimated abundances from Magellan/MIKE spectra are consistent (within the uncertainties) of our initial abundance determinations from \lamost\ (Figure \ref{KvsMg}), and are presented in Table \ref{data:magellan}.
-
-
+We acquired high-resolution spectra of three of our candidates as ancillary targets to an existing observing campaign. The three targets (J075043.12+204658.0, J120032.60+024438.2 and J091825.49+172114.5) were selected based on their observability from Las Campanas Observatory, and we used the Magellan Inamori Kyocera Echelle (MIKE) spectrograph on the Magellan Clay telescope \citep{shectman2003magellan,bernstein2003mike}. Exposure times were calculated to achieve a S/N of 30 per pixel at 450\,nm, sufficient to verify the K-enriched and Mg-poor nature of these stars. We reduced the data using the \texttt{CarPy} package \citep{kelson2003}. We used smoothing spline functions to continuum-normalize individual echelle orders, before combining them to produce a continuum-normalized spectrum that is contiguous from 350\,nm to 950\,nm. With the stellar parameters from \lamost, we calculated [K/Fe] and [Mg/Fe] abundances from individual atomic lines by measuring equivalent widths with Gaussian absorption profiles \citep{castelli2004,sneden,casey2014}. From the Magellan/MIKE spectra we confirmed that the K lines in these candidates were unaffected by telluric contamination. The estimated abundances from Magellan/MIKE spectra are consistent (within the uncertainties) of our initial abundance determinations from \lamost\ (Figure \ref{KvsMg}), and are presented in Table \ref{data:magellan}. Additional atomic line abundances are included in Table \ref{data:atomiclines} in the Appendix.
+\begin{table}[H]
+\centering
+\caption{Summary of line abundances measured from Magellan/MIKE follow-up spectra.}
+\label{data:magellan}
+\begin{tabular}{lcccc}
+\multicolumn{5}{c}{J075043.12+204658.0} \\
+\hline
+Species & $N$ & $\log_\epsilon(\textrm{X})$ & [X/Fe] & $\sigma/\sqrt{N}$ \\
+\hline
+\ion{Mg}{I} & 5 & 7.45 & $+$0.32 & 0.10 \\
+\ion{K}{I}  & 2 & 5.33 & $+$0.77 & 0.07 \\
+\hline
+\\
+\multicolumn{5}{c}{J091825.48+172114.5} \\
+\hline
+Species & $N$ & $\log_\epsilon(\textrm{X})$ & [X/Fe] & $\sigma/\sqrt{N}$ \\
+\hline
+\ion{Mg}{I} & 5 & 6.34 & $+$0.29 & 0.08 \\
+\ion{K}{I}  & 2 & 6.28 & $+$0.85 & 0.11 \\
+\hline
+\\
+\multicolumn{5}{c}{J120032.60+024438.2} \\
+\hline
+Species & $N$ & $\log_\epsilon(\textrm{X})$ & [X/Fe] & $\sigma/\sqrt{N}$ \\
+\hline
+\ion{Mg}{I} & 6 & 6.96 & $-$0.03 & 0.10 \\
+\ion{K}{I}  & 2 & 4.96 & $+$1.22 & 0.31 \\
+\hline
+\end{tabular}
+\end{table}
 
 \begin{figure*}
 \centering
@@ -275,23 +303,32 @@ No candidates have [Fe/H] $\approx -2$, the approximate metallicity of NGC 2419,
 
 
 \subsection{Detailed chemical abundances}
+In this section, we describe the abundance trends evident from the \lamost\ and Magellan/MIKE spectra and compare with stars identified as anomalous regarding their [Mg/Fe] and [K/Fe] abundances in other studies. Abundances as well as several physical and observational parameters are available for all candidate stars online, with a sample shown in Table \ref{data:lamost}
+
 \label{sec:abundances}
+
 
 \subsubsection{[Na/Fe]}
 
-\begin{figure*}
-\begin{subfigure}{0.5\textwidth}
+\begin{figure}
+\centering
+\begin{subfigure}{0.35\textwidth}
+\centering
 	\includegraphics[width=\columnwidth]{NavsFeh.png}
     \caption{[Na/Fe] vs [Fe/H] for the candidate stars.}
     \label{NavsFeh}
 \end{subfigure}
 
-\begin{subfigure}{0.5\textwidth}
+\begin{subfigure}{0.35\textwidth}
+\centering
 	\includegraphics[width=\columnwidth]{Navsb.png}
     \caption{[Na/Fe] vs galactic latitude for the candidate stars.}
     \label{Navsb}
-\end{subfigure}%
-\begin{subfigure}{0.5\textwidth}
+\end{subfigure}
+
+
+\begin{subfigure}{0.35\textwidth}
+\centering
 	\includegraphics[width=\columnwidth]{Navsradvel.png}
     \caption{[Na/Fe] vs radial velocity for the candidate stars.}
     \label{Navsradvel}
@@ -301,7 +338,7 @@ No candidates have [Fe/H] $\approx -2$, the approximate metallicity of NGC 2419,
 %\ContinuedFloat
 
 \caption{A strong bimodality in [Na/Fe] abundances of the candidate stars is observed, with a significant population displaying anomolously high abundances. Due to the apparent near-exclusivity of this population within the disk of the galaxy, and their notably higher E(B-V) values \citep{schlafly2011}, this phenomena is almost certainly due to interstellar dust.}
-\end{figure*}
+\end{figure}
 
 
 The modelling work of \cite{prantzos2017} predicted an anti-correlation between Na and K in a 180\,MK hydrogen burning environment, while observational data for NGC 2808 implies a positive correlation between Na and K. Upon examining the [Na/Fe] abundance ratios we estimated from \lamost\ spectra of our candidates, based on the doublet around 5850 \AA, we observed two distinct populations: one population making up approximately 30 percent of the sample with [Na/Fe] $> 0.5$, significantly higher than typical Galactic abundances of [Na/Fe] $\lesssim$ 0.3 \citep{kobayashi2011}, and a second population with [Na/Fe] abundance ratios consistent with typical Galactic levels. The two groups can be clearly distinguished in Figure \ref{NavsFeh}, where for comparison we also show the abundances of [Na/Fe] versus [Fe/H] from the \apogee\ survey.
@@ -334,7 +371,7 @@ Abundance ratios of [$\alpha$/Fe] in our sample fall within the lower limits for
 
 Given that the sample is almost certainly comprised of disk stars, it is relevant to also compare with typical Galactic abundances for [K/Fe]. In Figure \ref{KvsMg} and \ref{KvsFe} we make these comparisons with data from the \apogee\ survey \citep{alam2015}. The sample's [K/Fe] appears definitively anomalous, with Galactic [K/Fe] around $0.3 \pm 0.2$\,dex, while the identified candidate stars have a spread in [K/Fe] of 0.8 to 1.3. Note that the Magellan/MIKE abundance for candidate star J091825.49+172114.5 has [K/Fe] $=1.54$, confirming that at least some of the sample stars have extremely high levels of [K/Fe], approaching the extreme levels observed in NGC 2419.
 
-The [K/Fe] abundance ratios in our sample also show an anti-correlation with total metallicity, illustrated in Figure \ref{KvsFe}, which is not present in the bulk of Milky Way stars. It is interesting that the levels of [K/Fe] in the Mg-poor population of NGC 2419 appear consistent with this relation. However, we recommend additional high-resolution observations are needed to verify this trend.
+The [K/Fe] abundance ratios in our sample also show an anti-correlation with total metallicity, illustrated in Figure \ref{KvsFe}, which is not present in the bulk of Milky Way stars. It is interesting that the levels of [K/Fe] in the Mg-poor population of NGC 2419 appear consistent with this relation. For completeness, we caution that this trend may be an artefact of our analysis. [K/Fe] is calculated from the flux residuals ( $f_{\textrm{residual}} = f_{\textrm{data}} - f_{\textrm{model}}$), and the data-driven model may already account for some level of [K/Fe] in the star due to the model representing the typical star at a given $\teff$, $\logg$, metalicity and [$\alpha$/Fe]. This has potential to cause spurious effects; however, it should also be emphasized that these effects would be within the uncertainties associated with estimating abundances from \lamost\ spectra. We recommend additional high-resolution observations to verify this trend.
 
 %However we caution that this may be an artefact of our analysis. Further high resolution observations are needed to verify this trend.
 
@@ -403,48 +440,21 @@ Guoshoujing Telescope (the Large Sky Area Multi-Object Fiber Spectroscopic Teles
 \bibliography{mgkbib} % if your bibtex file is called example.bib
 
 
-
-
-\begin{table*}
-\centering
-\caption{Tabulated data for 10 of the 112 candidate stars. Data for the full sample is available online.}
-\label{data}
-\begin{tabular}{cccccccccccccc}
-\hline
-\textbf{2MASSID} & \textbf{RA} & \textbf{DEC} & \textbf{S/N} & \textbf{V$_\textrm{r}$} & \textbf{T$_\textrm{eff}$} & $\boldsymbol \log{ \, \textbf{g}}$ & \textbf{{[}Fe/H{]}} & \textbf{{[}$\alpha$/Fe{]}} & \textbf{$\boldsymbol \chi_r ^\textbf{2}$} & \textbf{{[}K/Fe{]}} & \textbf{Error} & \textbf{{[}Na/Fe{]}} & \textbf{Error} \\ 
-- & {[}deg{]} & {[}deg{]} & [pixel$^{-1}]$ & {[${\rm km\,s}^{-1}$]} & {[}K{]} & $[{\rm cm\,s}^{-2}]$ & {[}dex{]} & {[}dex{]} & - & {[}dex{]} & {[}dex{]} & {[}dex{]} & {[}dex{]} \\ \hline
-J000908.89+124821.9 & 2.29 & 12.81 & 10 & -78.55 & 4892 & 2.82 & -0.12 & 0.33 & 0.19 & 1.08 & 0.26 & 0.86 & 0.23 \\
-J002619.36+565612.1 & 6.58 & 56.94 & 31 & -39.57 & 4205 & 1.49 & 0.22 & 0.06 & 0.76 & 0.62 & 0.22 & 0.39 & 0.22 \\
-J002907.61+354701.0 & 7.28 & 35.78 & 15 & -82.74 & 5116 & 3.56 & 0.24 & 0.17 & 0.18 & 1.01 & 0.21 & -0.20 & 0.20 \\
-J003451.10+424543.0 & 8.71 & 42.76 & 15 & -79.15 & 4460 & 2.10 & -0.56 & 0.24 & 0.31 & 0.96 & 0.33 & -0.16 & 0.20 \\
-J005649.98+391722.9 & 14.21 & 39.29 & 41 & -46.77 & 4578 & 2.67 & 0.31 & 0.1 & 0.44 & 0.76 & 0.23 & -0.02 & 0.20 \\
-J010305.95+043445.9 & 15.77 & 4.58 & 90 & 20.69 & 4646 & 2.72 & 0.1 & 0.05 & 1.17 & 0.95 & 0.21 & -0.07 & 0.20 \\
-J011949.36+063411.4 & 19.96 & 6.57 & 479 & -28.18 & 4820 & 2.61 & -0.29 & 0.09 & 2.38 & 1.03 & 0.20 & -0.04 & 0.20 \\
-J013039.08+404843.8 & 22.66 & 40.81 & 71 & -80.34 & 4355 & 2.01 & -0.09 & 0.14 & 0.93 & 0.92 & 0.21 & 0.46 & 0.21 \\
-J030101.42+560042.3 & 45.26 & 56.01 & 88 & -39.27 & 4878 & 2.53 & -0.32 & 0.09 & 0.67 & 1 & 8.70 & -0.02 & 0.20 \\
-J032423.46+425429.6 & 51.1 & 42.91 & 23 & -56.74 & 4649 & 2.63 & -0.11 & -0.01 & 0.34 & 1.12 & 0.22 & 0.80 & 0.20 \\ \hline
-\end{tabular}
-\end{table*}
-
-\begin{table}[]
-\centering
-\caption{Tabulated data for the 3 stars observed using MAGELLAN/MIKE}
-\label{data:magellan}
-\begin{tabular}{lllllllllll}
-designation\_1      & ra\_1\_1 & dec\_1\_1 & cannon\_teff\_1 & cannon\_logg\_1 & cannon\_m\_h\_1 & cannon\_alpha\_m\_1 & {[}Mg/Fe{]} & {[}K/Fe{]} & K\_FE & K\_FE\_err \\
-J075043.12+204658.0 & 117.68   & 20.78     & 4795.00         & 2.53            & -0.47           & 0.06                & 0.15        & 0.80       & 1.11  & 0.05       \\
-J120032.60+024438.2 & 180.14   & 2.74      & 4633.00         & 2.33            & -0.93           & 0.26                & 0.22        & 0.80       & 1.13  & 0.02       \\
-J091825.49+172114.5 & 139.61   & 17.35     & 4899.00         & 2.71            & -1.19           & 0.29                & 0.36        & 1.54       & 1.30  & 0.12      
-\end{tabular}
-\end{table}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%% APPENDICES %%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+
+\section{Additional atomic line abundances from Magellan/MIKE}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{table*}
 \centering
 \caption{Atomic line abundances measured from Magellan/MIKE follow-up spectra of three Mg/K candidates.}
-\label{line-measurements}
+\label{data:atomiclines}
 \begin{tabular}{crrrcccccc}
 \hline
 & & & & \multicolumn{2}{c}{J075043.12+204658.0} & \multicolumn{2}{c}{J091825.48+172114.5} & \multicolumn{2}{c}{J120032.60+024438.2} \\
@@ -468,45 +478,27 @@ Species & $\lambda$ & $\chi$ & $\log{gf}$ & E.W. & $\log_\epsilon(\textrm{X})$ &
 \end{tabular}
 \end{table*}
 
-\begin{table}
+\begin{table*}
 \centering
-\caption{Summary of line abundances measured from Magellan/MIKE follow-up spectra.}
-\label{line-summary-measurements}
-\begin{tabular}{lcccc}
-\multicolumn{5}{c}{J075043.12+204658.0} \\
-
+\caption{Tabulated data for 10 of the 112 candidate stars. Data for the full sample is available online.}
+\label{data:lamost}
+\begin{tabular}{cccccccccccccc}
 \hline
-Species & $N$ & $\log_\epsilon(\textrm{X})$ & [X/Fe] & $\sigma/\sqrt{N}$ \\
-
-\hline
-\ion{Mg}{I} & 5 & 7.45 & $+$0.32 & 0.10 \\
-\ion{K}{I}  & 2 & 5.33 & $+$0.77 & 0.07 \\
-\hline
-
-\\
-\multicolumn{5}{c}{J091825.48+172114.5} \\
-
-\hline
-Species & $N$ & $\log_\epsilon(\textrm{X})$ & [X/Fe] & $\sigma/\sqrt{N}$ \\
-
-\hline
-\ion{Mg}{I} & 5 & 6.34 & $+$0.29 & 0.08 \\
-\ion{K}{I}  & 2 & 6.28 & $+$0.85 & 0.11 \\
-\hline
-
-\\
-\multicolumn{5}{c}{J120032.60+024438.2} \\
-
-\hline
-Species & $N$ & $\log_\epsilon(\textrm{X})$ & [X/Fe] & $\sigma/\sqrt{N}$ \\
-
-\hline
-\ion{Mg}{I} & 6 & 6.96 & $-$0.03 & 0.10 \\
-\ion{K}{I}  & 2 & 4.96 & $+$1.22 & 0.31 \\
-\hline
+\textbf{2MASSID} & \textbf{RA} & \textbf{DEC} & \textbf{S/N} & \textbf{V$_\textrm{r}$} & \textbf{T$_\textrm{eff}$} & $\boldsymbol \log{ \, \textbf{g}}$ & \textbf{{[}Fe/H{]}} & \textbf{{[}$\alpha$/Fe{]}} & \textbf{$\boldsymbol \chi_r ^\textbf{2}$} & \textbf{{[}K/Fe{]}} & \textbf{Error} & \textbf{{[}Na/Fe{]}} & \textbf{Error} \\ 
+- & {[}deg{]} & {[}deg{]} & [pixel$^{-1}]$ & {[${\rm km\,s}^{-1}$]} & {[}K{]} & $[{\rm cm\,s}^{-2}]$ & {[}dex{]} & {[}dex{]} & - & {[}dex{]} & {[}dex{]} & {[}dex{]} & {[}dex{]} \\ \hline
+J000908.89+124821.9 & 2.29 & 12.81 & 10 & -78.55 & 4892 & 2.82 & -0.12 & 0.33 & 0.19 & 1.08 & 0.26 & 0.86 & 0.23 \\
+J002619.36+565612.1 & 6.58 & 56.94 & 31 & -39.57 & 4205 & 1.49 & 0.22 & 0.06 & 0.76 & 0.62 & 0.22 & 0.39 & 0.22 \\
+J002907.61+354701.0 & 7.28 & 35.78 & 15 & -82.74 & 5116 & 3.56 & 0.24 & 0.17 & 0.18 & 1.01 & 0.21 & -0.20 & 0.20 \\
+J003451.10+424543.0 & 8.71 & 42.76 & 15 & -79.15 & 4460 & 2.10 & -0.56 & 0.24 & 0.31 & 0.96 & 0.33 & -0.16 & 0.20 \\
+J005649.98+391722.9 & 14.21 & 39.29 & 41 & -46.77 & 4578 & 2.67 & 0.31 & 0.1 & 0.44 & 0.76 & 0.23 & -0.02 & 0.20 \\
+J010305.95+043445.9 & 15.77 & 4.58 & 90 & 20.69 & 4646 & 2.72 & 0.1 & 0.05 & 1.17 & 0.95 & 0.21 & -0.07 & 0.20 \\
+J011949.36+063411.4 & 19.96 & 6.57 & 479 & -28.18 & 4820 & 2.61 & -0.29 & 0.09 & 2.38 & 1.03 & 0.20 & -0.04 & 0.20 \\
+J013039.08+404843.8 & 22.66 & 40.81 & 71 & -80.34 & 4355 & 2.01 & -0.09 & 0.14 & 0.93 & 0.92 & 0.21 & 0.46 & 0.21 \\
+J030101.42+560042.3 & 45.26 & 56.01 & 88 & -39.27 & 4878 & 2.53 & -0.32 & 0.09 & 0.67 & 1 & 8.70 & -0.02 & 0.20 \\
+J032423.46+425429.6 & 51.1 & 42.91 & 23 & -56.74 & 4649 & 2.63 & -0.11 & -0.01 & 0.34 & 1.12 & 0.22 & 0.80 & 0.20 \\ \hline
 \end{tabular}
-\end{table}
-
+\end{table*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
