@@ -1,0 +1,149 @@
+- Comments to the Author
+- The manuscript describes the analysis of a sample of field stars 
+with K and Mg abundances that seem to resemble those observed 
+in some extreme globular clusters (like NGC2419 and NGC2808). 
+Even if the topic is extremely interesting and an explanation of 
+these peculiar stars is still lacking, several points, discussed below, 
+should be clarified and better discussed before to consider the paper 
+for the publication. I find the description of the analysis 
+quite qualitative and not fully convincing. Additional details 
+should be provided in order to demonstrate the reliability of the 
+results. In particular, I'm not fully convinced that K abundances 
+are totally free from bias or systematics.
+I suggest to move the paper to the main journal in order to
+provide all the needed information about the analysis.
+
+The paper has been lengthened for submission to the main journal to accommodate a more thorough description of the analysis. Additional analysis has been included relating to the treatment of possible systematic effects, and relevant technical details have been added.
+
+- The abundances from the resonance K lines at 7665 and 7699 A are 
+highly sensitive to the adopted microturbulent velocities.
+Also, they can be affected by significant NLTE corrections. 
+These two effects are not discussed throughout the paper and they 
+could be relevant (in particular to understand whether these 
+stars are really K-enriched). 
+Which value of microturbulent velocities has been adopted? 
+I assume that, considering the low spectral resolution of LAMOST, 
+microturbulent velocities have been assumed or derived from 
+some parametrization (and not measured from the spectra).
+Are the K abundances corrected for NLTE?
+In principle, the NLTE corrections for K abundances 
+are negative (depending on the metallicity and atmospheric parameters), 
+pointing out that LTE K abundances are over-estimated.
+
+We thank the referee for raising this point. Microturbulent velocities were adopted from a parameterization for giant stars, which we have now explicitly included in the updated manuscript. The quoted K abundances assume LTE in order to make comparisons with other literature sources that only quote LTE abundances. We have updated the manuscript to discuss the level of non-LTE corrections, and included figures of [K/Fe] against stellar parameters to demonstrate that there is no strong systematic trend.
+
+We note that our data-driven model encapsulates the typical flux for a star with a given effective temperature, surface gravity, metallicity, et cetera, and we are identifying K-enhanced candidates as stars with significant enhancements away from this model. That is to say that when we identify a star as being enhanced in potassium, we are stating that it is showing flux enhancements at the potassium line that are larger than what we would expect for a star of that effective temperature, surface gravity, and metallicity. So while non-LTE effects may over-estimate the abundances we derive, non-LTE effects would not result in false positive detections of K-enhanced candidates.
+
+
+- I think that the definition of K-enriched, Mg-depleted stars for 
+the discussed targets is not totally correct. 
+The K abundances are clearly higher than those observed in other stars 
+of similar metallicities, but the [Mg/Fe] abundances are compatible with 
+those stars. Also, the comparison between these stars 
+and the APOGEE sample (Fig.3) suggests that the targets have 
+the same Mg level of the APOGEE stars with similar [Fe/H]. 
+In other words, they are normal stars in terms of Mg but not in terms of K.
+In principle, I don't see any reason to consider 
+these stars depleted in Mg. The Mg-poor stars observed in 
+NGC2419 and NGC2808 show a depletion in Mg with respect to 
+the Mg abundance observed in most of the cluster stars. 
+The LAMOST targets can be consider as Mg-poor stars if they show 
+abundances significantly lower than those of the majority of the stars 
+with similar metallicity.
+
+The authors acknowledge that further analysis is required to definitively label the candidate stars as Mg-depleted and K-enhanced.
+
+In principle we required stars to show at least some depletion in [Mg/Fe] by the criteria we employed to select candidates. But the *enhancement* of [K/Fe] is much higher than the depletion of [Mg/Fe]. We have softened this definition throughout the manuscript and focused on [K/Fe] enhancement.
+
+It is perhaps worth noting that even without a depletion in [Mg/Fe] relative to stars of similar metallicity, these candidate stars could still represent a population polluted by an event similar to NGC 2419, provided their level of [K/Fe] is confirmed as high. Although entirely speculative, it is possible that whatever mechanism produced the signature in NGC 2419 is then mixed with Mg-rich supernovae ejecta to make more metal-rich stars with more typical [Mg/Fe], but still displaying enhanced [K/Fe]. Thus, the absence of meaningful [Mg/Fe] abundances for the sample of stars presented in this study is perhaps not as significant as it might appear. However, we avoided making these speculative claims in the paper until detailed chemical abundances can be measured.
+
+- The abundances of Fe, K and Mg of the entire sample should be 
+shown and not only those of the stars selected as K-rich, Mg-poor. 
+It is crucial to show also the other "normal" stars. 
+If your analysis procedure is not affected by any bias, most of the stars 
+should match with the APOGEE stars in terms of Mg and K.
+The definition of "K-rich stars" should be done with respect to a sample 
+of stars analyzed in the same way.
+
+We agree. As discussed above, however, performing meaningful spectral synthesis for the entire 450000-star sample is not computationally feasible. Deriving detailed chemical abundances for these candidates will be the subject of future work, which will also be critical in understanding the origin of this Mg/K abundance signature.
+
+- Please show the comparison between two LAMOST spectra with similar 
+parameters and metallicities but different K abundances, in order to 
+demonstrate a clear difference in the strength of the K lines.
+
+We have added a figure showing two LAMOST spectra with similar stellar parameters and different Mg/K abundances.
+
+- The authors should show the behavior of [Mg/Fe] as a function of [Fe/H] 
+(similar to Fig, 4 for K)
+
+Regrettably, as we are unable to obtain [Mg/Fe] abundances for any stars other than those for which we have abundances from Magellan/MIKE, this figure is unable to be included.
+
+- The authors should show the behavior of [K/Fe] as a function 
+of Teff and logg, in order to demonstrate that there are no spurious 
+effects due to the analysis (uncertain parameters, NLTE effects...).
+
+We have added this information to the paper (Figures 4a and 4b.).
+
+- It is not totally clear what the authors mean with "amplitude A". 
+Is it like an equivalent width? Which are the units of these amplitudes?
+
+We failed to adequately explain this point. The amplitude is the strength of the Gaussian profile used to fit the flux residuals. It is analogous to the depth of the absorption line, and is related to the equivalent width by EW = 2\pi{}A\sigma, where \sigma is the width of the profile. We have updated the manuscript to more clearly explain the profile amplitude.
+
+- The abundances of Fe, Mg and K for the three MIKE targets should 
+be explicitly provided. 
+
+We have included a table of chemical abundances measured from the Magellan/MIKE spectra.
+
+- A table with the main information about the K-rich stars (coordinates, magnitudes, 
+atmospheric parameters) should be provided.
+
+We have added a table of properties of the candidates, which includes coordinates, magnitudes, stellar parameters, and other ancillary information.
+
+- The oscillator strengths for the used K lines should be quoted, 
+in order to highlight possible systematics with other works.
+
+Good catch! We have included these in the updated manuscript.
+
+- The authors suggest that the mechanism responsible of the K-enhancement 
+in these stars should be the same responsible of the K-rich, Mg-poor stars 
+in some extreme globulars. However, the K enhancement in NGC2419 and NGC2808 
+is explained in the framework of the self-enrichment process occurring 
+in the early stage of life of the globulars and related to their high 
+stellar density. How is possible that the same mechanism occurs in 
+field stars?
+
+We do not claim to have a complete answer to the Mg-K anti-correlation puzzle, but rather seek to provide information that might guide attempts to explain the phenomena. For example, this work is the first that shows that K-rich (and possibly somewhat Mg-poor) stars exist at metallicities other than [Fe/H] ~ -2. If these stars (or, more realistically, some subset of these stars) are related to the mechanism responsible in NGC 2419, then detailed abundances for our sample of stars will help guide efforts to explain the puzzle.
+
+We discuss possible mechanisms only in the context of existing literature. This has been limited to globular clusters because the abundance signature has never been identified elsewhere. The origin of the abundance signature remains unknown. While it may be that self-enrichment is why there are so many peculiar stars in NGC 2419, it does not necessarily follow that the progenitor star could not form elsewhere and pollute other stars outside a globular cluster environment. It would seem unlikely that this extremely rare signature would have two unrelated origins that depend on whether it is found in a cluster environment or a galactic environment. All of this is speculation, which we have tried to avoid in this paper, but we aimed to discuss our results within the context of the existing literature. 
+
+- In Section 3.3 the authors claimed that the behaviour of [K/Fe] with 
+the metallicity could be due to some artifacts of the analysis.
+Which artifacts? This sentence seems to suggest possible systematics 
+in the analysis that should be better investigated.
+
+We have expanded the discussion on this point. In short, it is because we measure [K/Fe] from the flux residuals (observed flux - data driven model), but some [K/Fe] contribution may already be accounted for in the data-driven model, because the data-driven model just encapsulates “the typical flux for a star of the given temperature, surface gravity, metallicity, etc”. This potential bias is probably small (far smaller than the uncertainties from measuring abundances from LAMOST data!), but we comment on it in the paper for completeness. 
+
+- Concerning the check about [Na/Fe], the authors could investigate 
+possible trend of [Na/Fe] with the radial velocity. I expect that 
+the stars with Na lines contaminated by the interstellar features 
+will be those with radial velocities close to 0 km/s.
+
+This was our intuition too.
+- In the Introduction, where the authors discuss about K abundance 
+in other clusters, please quote also the works by Mucciarelli et al. 2017 
+and Cerniauskas et al. 2017 that present abundances of K in samples 
+larger than those discussed by Carretta et al. 2013.
+
+These works are now referenced in the introduction. Thank you for raising this.
+
+- Caption of Figure 4. The authors claim that the individual metallicities 
+of the stars in NGC2808 are not available. The metallicities used by 
+Mucciarelli et al. 2015 are those of the same stars analysed by 
+Carretta et al. 2009.
+
+These metallicities are now included in the relevant figure. Thank you for raising this.
+
+
+
+
+The authors wish to thank the referee for their time, and the valuable and constructive feedback they have provided. The scientific value and robustness of the paper has been significantly increased as a result. We regret that we were unable to fully address some of the more fundamental concerns that were raised, specifically the absence of [Mg/Fe] and [K/Fe] abundance ratios for the full sample of LAMOST giants. However, we remain convinced that this sample of stars – even unconfirmed - is worthy of bringing to the attention of the relevant scientific community.
