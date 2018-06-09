@@ -1808,7 +1808,7 @@ FUNCTION {begin.bib}
 "\relax" write$ newline$
 "\def\mn@urlcharsother{\let\do\@makeother \do\$\do\&\do\#\do\^\do\_\do\%\do\~}" write$ newline$
 "\def\mn@doi{\begingroup\mn@urlcharsother \@ifnextchar [ {\mn@doi@} {\mn@doi@[]}}" write$ newline$
-"\def\mn@doi@[#1]#2{\def\@tempa{#1}\ifx\@tempa\@empty \href {http://dx.doi.org/#2} {doi:#2}\else \href {http://dx.doi.org/#2} {#1}\fi \endgroup}" write$ newline$
+"\def\mn@doi@[#1]#2{\def\@tempa{#1}\ifx\@tempa\@empty \href {https://doi.org/#2} {doi:#2}\else \href {https://doi.org/#2} {#1}\fi \endgroup}" write$ newline$
 "\def\mn@eprint#1#2{\mn@eprint@#1:#2::\@nil}" write$ newline$
 "\def\mn@eprint@arXiv#1{\href {http://arxiv.org/abs/#1} {{\tt arXiv:#1}}}" write$ newline$
 "\def\mn@eprint@dblp#1{\href {http://dblp.uni-trier.de/rec/bibtex/#1.xml} {dblp:#1}}" write$ newline$

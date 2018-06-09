@@ -5,7 +5,7 @@
 \def\mn@doi{\begingroup\mn@urlcharsother \@ifnextchar [ {\mn@doi@}
   {\mn@doi@[]}}
 \def\mn@doi@[#1]#2{\def\@tempa{#1}\ifx\@tempa\@empty \href
-  {http://dx.doi.org/#2} {doi:#2}\else \href {http://dx.doi.org/#2} {#1}\fi
+  {https://doi.org/#2} {doi:#2}\else \href {https://doi.org/#2} {#1}\fi
   \endgroup}
 \def\mn@eprint#1#2{\mn@eprint@#1:#2::\@nil}
 \def\mn@eprint@arXiv#1{\href {http://arxiv.org/abs/#1} {{\tt arXiv:#1}}}
