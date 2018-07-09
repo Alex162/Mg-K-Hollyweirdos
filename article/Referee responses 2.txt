@@ -15,16 +15,21 @@ This is my own opinion to enforce the result but I understand that this
 task is an additional and probably time-consuming effort.
 The authors are free to follow or not this suggestion.
 
-- Regrettably, undertaking the abundance estimation for even a small sample of LAMOST targets is a non-trivial endeavor,
-- and while taking a smaller sample makes the problem more tractable, the reduced sample size also diminishes the
-- significance of the result. For this reason, we have opted not to include the additional sample of LAMOST stars.
+- Regrettably, undertaking the abundance estimation for LAMOST targets
+- is a non-trivial endeavour, and while taking a smaller sample makes
+- the problem more tractable, the reduced sample size diminishes the
+- significance of the result. For this reason, we have opted to not
+- include an additional sample of LAMOST stars, and have instead started
+- a high-resolution spectroscopic campaign to measure detailed chemical
+- abundances for a large number of normal and Mg-K stars. The detailed
+- chemical abundances to be measured in that program will undoubtedly
+- shed light on the origin of the Mg-K anomaly.
 
 Additionally, I have some minor comments/suggestions.
 
 1) Please add explicitly [Fe/H] in Table 1.
 
 - This information is now included in Table 1, along with [K/H] and [Mg/H].
-
 
 2) The link between red circles and red hexagons is not easy 
 to understand at a first glance. Please better explain it 
@@ -43,6 +48,6 @@ with a more significant number of digits.
 
 - The linear regression using the LAMOST abundances is now included in Figure 7,
 - and the equation and its statistical significance quantified by r^2 is given in the caption.
-- The statistical significance is fairly low, though given the large uncertainties in the abundace estimations, this is not unexpected.
+- The statistical significance is fairly low, though given the large uncertainties in the abundance estimations, this is not surprising.
 - The equation and r^2 value is: [K/Fe]= −0.21×[Fe/H]+0.97, with r^2 =0.37.
 
