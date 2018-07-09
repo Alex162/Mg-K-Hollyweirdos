@@ -1,0 +1,48 @@
+Referee responses 2
+
+Comments to the Author
+I thank the authors to improve the manuscript that now it is 
+ready to be recommended for the publication. 
+I repeat my previous comment, the lack of a (small) sample of stars 
+observed with LAMOST and with normal [K/Fe] weakens the result, 
+because the suspect of possible systematics remains and the 
+comparison with APOGEE data is not homogeneous. 
+My suggestion would be to include a sample of about 50/100 LAMOST targets 
+with metallicity similar to that of the K-rich stars but 
+with not enhanced K abundances, in order to quantitatively estimate 
+the amount of K enrichment of these stars. 
+This is my own opinion to enforce the result but I understand that this 
+task is an additional and probably time-consuming effort.
+The authors are free to follow or not this suggestion.
+
+- Regrettably, undertaking the abundance estimation for even a small sample of LAMOST targets is a non-trivial endeavor,
+- and while taking a smaller sample makes the problem more tractable, the reduced sample size also diminishes the
+- significance of the result. For this reason, we have opted not to include the additional sample of LAMOST stars.
+
+Additionally, I have some minor comments/suggestions.
+
+1) Please add explicitly [Fe/H] in Table 1.
+
+- This information is now included in Table 1, along with [K/H] and [Mg/H].
+
+
+2) The link between red circles and red hexagons is not easy 
+to understand at a first glance. Please better explain it 
+in the caption and in Section 2.2.
+
+- The relationship between the red circles and diamonds is now explicitly dealt with in the caption,
+- as well as in the figure explanation in Section 2.2.
+
+3) Please provide the coordinates of the targets in Table A2 
+with a more significant number of digits.
+
+- Table A2 Right Ascension and Declination coordinates are now provided to 4 decimal points (units: degrees) in Table A2.
+
+4) Please provide the statistical significance of the 
+[K/Fe]-[Fe/H] anticorrelation.
+
+- The linear regression using the LAMOST abundances is now included in Figure 7,
+- and the equation and its statistical significance quantified by r^2 is given in the caption.
+- The statistical significance is fairly low, though given the large uncertainties in the abundace estimations, this is not unexpected.
+- The equation and r^2 value is: [K/Fe]= −0.21×[Fe/H]+0.97, with r^2 =0.37.
+
