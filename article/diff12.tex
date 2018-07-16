@@ -1,10 +1,41 @@
+% mnras_template.tex
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL msculled_revised_1.tex   Tue Jul  3 17:48:36 2018
+%DIF ADD msculled_revised_2.tex   Mon Jul  9 18:19:45 2018
+%
+% LaTeX template for creating an MNRAS paper
+%
+% v3.0 released 14 May 2015
+% (version numbers match those of mnras.cls)
+%
+% Copyright (C) Royal Astronomical Society 2015
+% Authors:
+% Keith T. Smith (Royal Astronomical Society)
 
+% Change log
+%
+% v3.0 May 2015
+%    Renamed to match the new package name
+%    Version number matches mnras.cls
+%    A few minor tweaks to wording
+% v1.0 September 2013
+%    Beta testing only - never publicly released
+%    First version: a simple (ish) template for creating an MNRAS paper
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Basic setup. Most papers should leave these options alone.
 \documentclass[a4paper,fleqn,usenatbib]{mnras}
 
+% MNRAS is set in Times font. If you don't have this installed (most LaTeX
+% installations will be fine) or prefer the old Computer Modern fonts, comment
+% out the following line
 \usepackage{newtxtext,newtxmath}
+% Depending on your LaTeX fonts installation, you might get better results with one of these:
+%\usepackage{mathptmx}
+%\usepackage{txfonts}
 
-
-
+% Use vector fonts, so it zooms properly in on-screen viewing software
+% Don't change these lines unless you know what you are doing
 \usepackage[T1]{fontenc}
 \usepackage{ae,aecompl}
 
@@ -45,10 +76,14 @@
 \newcommand{\logg}{\log_{10}(g/{\rm cm\,s}^{-2})}
 \let\ACMmaketitle=\maketitle
 \renewcommand{\maketitle}{\begingroup\let\footnote=\thanks \ACMmaketitle\endgroup}
+%%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%
 
+% Title of the paper, and the short title which is used in the headers.
+% Keep the title short and informative.
 \title[Mg--K stars in LAMOST]{On the discovery of K-enhanced and possibly Mg-depleted stars throughout the Milky Way\footnote{This paper includes data gathered with the 6.5 meter Magellan Telescopes located at Las Campanas Observatory, Chile.}}
 
-
+% The list of authors, and the short list which is used in the headers.
+% If you need two or more lines of authors, add an extra line using \newauthor
 \author[Kemp et al.]{Alex J. Kemp,$^{1}$\thanks{E-mail: ajkem1@student.monash.edu}
 Andrew R. Casey,$^{1,2}$
 Matthew T. Miles,$^{1}$
@@ -61,6 +96,7 @@ Christopher A. Tout,$^{1,5}$
 Melissa Ness,$^{6}$
 Alexander P. Ji$^{7}$
 \\
+% List of institutions
 $^{1}$School of Physics \& Astronomy, Monash University, Clayton 3800, Victoria, Australia\\
 $^{2}$Faculty of Information Technology, Monash University, Clayton 3800, Victoria, Australia\\
 $^{3}$Department of Physics and Astronomy, Johns Hopkins University, Baltimore, MD 21218, USA\\
@@ -69,19 +105,82 @@ $^{5}$Institute of Astronomy, Madingley Road, Cambridge, CB3 0HA, United Kingdom
 $^{6}$Department of Astronomy, Columbia University, 550 West 120th Street New York, New York 10027\\
 $^{7}$The Observatories of the Carnegie Institution of Washington, 813 Santa Barbara St., Pasadena, CA 91101, USA
 }
-
+% These dates will be filled out by the publisher
 \date{Accepted 2018 XX XX. Received 2018 YY YY; in original form 2018 ZZ ZZ}
 
-
+% Enter the current year, for the copyright statements etc.
 \pubyear{2018}
-
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFaddtex}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdeltex}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF HYPERREF PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{\texorpdfstring{\DIFaddtex{#1}}{#1}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{\texorpdfstring{\DIFdeltex{#1}}{}} %DIF PREAMBLE
+\newcommand{\DIFscaledelfig}{0.5}
+%DIF HIGHLIGHTGRAPHICS PREAMBLE %DIF PREAMBLE
+\RequirePackage{settobox} %DIF PREAMBLE
+\RequirePackage{letltxmacro} %DIF PREAMBLE
+\newsavebox{\DIFdelgraphicsbox} %DIF PREAMBLE
+\newlength{\DIFdelgraphicswidth} %DIF PREAMBLE
+\newlength{\DIFdelgraphicsheight} %DIF PREAMBLE
+% store original definition of \includegraphics %DIF PREAMBLE
+\LetLtxMacro{\DIFOincludegraphics}{\includegraphics} %DIF PREAMBLE
+\newcommand{\DIFaddincludegraphics}[2][]{{\color{blue}\fbox{\DIFOincludegraphics[#1]{#2}}}} %DIF PREAMBLE
+\newcommand{\DIFdelincludegraphics}[2][]{% %DIF PREAMBLE
+\sbox{\DIFdelgraphicsbox}{\DIFOincludegraphics[#1]{#2}}% %DIF PREAMBLE
+\settoboxwidth{\DIFdelgraphicswidth}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\settoboxtotalheight{\DIFdelgraphicsheight}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\scalebox{\DIFscaledelfig}{% %DIF PREAMBLE
+\parbox[b]{\DIFdelgraphicswidth}{\usebox{\DIFdelgraphicsbox}\\[-\baselineskip] \rule{\DIFdelgraphicswidth}{0em}}\llap{\resizebox{\DIFdelgraphicswidth}{\DIFdelgraphicsheight}{% %DIF PREAMBLE
+\setlength{\unitlength}{\DIFdelgraphicswidth}% %DIF PREAMBLE
+\begin{picture}(1,1)% %DIF PREAMBLE
+\thicklines\linethickness{2pt} %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\framebox(1,1){}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\line( 1,1){1}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,1){\line(1,-1){1}}}% %DIF PREAMBLE
+\end{picture}% %DIF PREAMBLE
+}\hspace*{3pt}}} %DIF PREAMBLE
+} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbegin}{\DIFaddbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddend}{\DIFaddend} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbegin}{\DIFdelbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelend}{\DIFdelend} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbegin}{\DIFOaddbegin \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbegin}{\DIFOdelbegin \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbeginFL}{\DIFaddbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddendFL}{\DIFaddendFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbeginFL}{\DIFdelbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelendFL}{\DIFdelendFL} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbeginFL}{\DIFOaddbeginFL \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbeginFL}{\DIFOdelbeginFL \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
 
 \begin{document}
 \label{firstpage}
 \pagerange{\pageref{firstpage}--\pageref{lastpage}}
 \maketitle
 
-
+% Abstract of the paper
+%The detailed chemical composition of a star acts as a fossil record of the conditions when it formed. 
 
 \begin{abstract}
 Stars with unusual elemental abundances offer clues about rare astrophysical events or nucleosynthetic pathways. Stars with significantly depleted magnesium and enhanced potassium ($[{\rm Mg}/{\rm Fe}] < -0.5$; $[{\rm K}/{\rm Fe}] > 1$) have to date only been found in the massive globular cluster NGC~2419 and, to a lesser extent, NGC~2808. The origin of this abundance signature remains unknown, as does the reason for its apparent exclusivity to these two globular clusters. Here we present 112 field stars, identified from \LamostGiants\ \lamost\ giants, that show significantly enhanced [K/Fe] and possibly depleted [Mg/Fe] abundance ratios.
@@ -89,7 +188,8 @@ Our sample spans a wide range of metallicities ($-1.5 < [{\rm Fe}/{\rm H}] < 0.3
 If confirmed, the identified sample of stars represents evidence that the nucleosynthetic process producing the anomalous abundances ratios of [K/Fe] and [Mg/Fe] probably occurs at a wide range of metallicities. This would suggest that pollution scenarios that are limited to early epochs (such as Population III supernovae) are an unlikely explanation, although they cannot be ruled out entirely. This sample is expected to help guide modelling attempts to explain the origin of the Mg--K abundance signature.
 \end{abstract}
 
-
+% Select between one and six entries from the list of approved keywords.
+% Don't make up new ones.
 \begin{keywords}
 methods: data analysis -- catalogues -- stars: chemically peculiar -- Galaxy: abundances -- Galaxy: evolution -- galaxies: globular clusters: individual: evolution
 \end{keywords}
@@ -102,7 +202,7 @@ methods: data analysis -- catalogues -- stars: chemically peculiar -- Galaxy: ab
 \label{sec:intro}
 NGC 2419 is the Milky Way's third most massive globular cluster, and its chemical composition makes it perhaps the most unusual star cluster in the Galaxy. Recent spectroscopic studies of red giant branch (RGB) stars in NGC 2419 revealed a strong anti-correlation between Mg and K abundances in nearly half of the studied stars, and weaker abundance relations in Si, Sc, Ca, Ti, and V with Mg \citep{mucciarelli2012,cohenkirby2012}.
 
-
+%A targeted search for [K/Fe] in RGB and main sequence turn-off stars in other clusters 
 A targeted search for [K/Fe] in other globular clusters (NGC 6752, NGC 6121, NGC 1904, NGC 104, NGC 6397, NGC 7099, and $\omega$ Centauri) and field stars concluded that all K abundance ratios fell within the bounds of the Mg-normal population in NGC 2419 \citep{carretta2013}, and no correlations between Mg and K were observed. Recent work by \cite{cerniauskas201747tuc} searched for unusual abundance patterns in Mg and K in NGC 104 by deriving abundances using 2dF/HERMES spectra, and a more comprehensive study involving over 400 stars in NGC 104, NGC 6752, and NGC 6809 by \cite{mucciarelli2017K} using FLAMES spectra \citep{cerniauskas201747tuc} both found no correlations between Mg and K, and no significant intrinsic spreads in either Mg or K.
 
 NGC 2808 is the only cluster, other than NGC 2419, where an anticorrelation between Mg and K has been observed. All four of NGC 2808's known Mg-depleted stars show an anti-correlation with K \citep{mucciarelli2015}, although the amplitude of these abundance ratios is far weaker than those found in NGC 2419. The fact that the Mg-K anti-correlation is apparently confined to these two globular clusters implies either a small population of unusual polluter stars, or a single extremely massive polluter star. If it were the cumulative effect of many pollution events that was responsible for the signal, it would be expected that the anomalous abundances would be common among globular clusters.
@@ -121,7 +221,7 @@ We used a set of \LamostGiants\ giant stars from the second \lamost\ data releas
 
 We identified potential Mg-depleted and K-enhanced stars by searching for significant deviations in flux residuals. The flux residuals were calculated as the difference between the normalised \lamost\ flux and the best-fitting data-driven model flux from \tc\ ( $f_{\textrm{residual}} = f_{\textrm{data}} - f_{\textrm{model}}$). A positive residual implies a higher observed normalised flux than expected by the model (less stellar absorption than predicted by the model), while a negative residual implies a lower observed normalised flux than expected (more stellar absorption than predicted by the model). Figure \ref{posterchild} shows the \lamost\ spectrum and best-fitting model from \tc\ for J075043.1+204658, a Mg--K candidate star we identified, as well as the observed spectra for J053622.4+223600, the star with closest stellar parameters to our Mg--K candidate star, J075043.1+204658. 
 
-We fit a Gaussian profile of amplitude $A$ to the flux residuals for all three absorption lines in the Mg triplet (5167\,\AA, 5172\,\AA, 5184\,\AA) as well as the K doublet (7665\,\AA, 7699\,\AA) for all \LamostGiants\ giants. For each star we recorded the amplitudes, widths (standard deviations) and wavelength (mean) about which the Gaussian profiles were fit. The amplitude was used as the measure of the discrepancy from the model spectra, and is analogous to the depth of the absorption line, and in principle linearly dependent on the equivalent width. This measure was favoured as more reliable than attempting to quantify line widths from the low resolution \lamost\ spectra.
+We fit a Gaussian profile of amplitude $A$ to the flux residuals for all three absorption lines in the Mg triplet (5167\,\AA, 5172\,\AA, 5184\,\AA) as well as the K doublet (7665\,\AA, 7699\,\AA) for all \LamostGiants\ giants. For each star we recorded the amplitudes, widths (standard deviations) and wavelength (mean) about which the Gaussian profiles were fit. The amplitude was used as the measure of the discrepancy from the model spectra, and is analogous to the depth of the absorption line, and in principle linearly dependent on the equivalent width. This measure was favoured as more reliable than attempting to quantify line widths from the low resolution \lamost\ spectra. %The relationship between equivalent width ($EW$), the amplitude ($A$) and the Gaussian width ($\sigma$) is given by $EW=\frac{2\pi A}{\sigma}$.
 
 We identified candidates by requiring that they match at least one of the following three quality filters:
 \begin{enumerate}
@@ -129,7 +229,7 @@ We identified candidates by requiring that they match at least one of the follow
 \item We required any two of the three Mg triplet lines to satisfy $A > 0.05$ and at least one K line to have $A < -0.05$, and for those amplitudes to have $|A|/\sigma_{A} \geq 3$.
 \item We required the amplitude of any two of the three Mg triplet lines to have $A > 0$ and both K lines to have $A < 0$, and for the spectra to have a signal-to-noise ($S/N$) ratio of $S/N > 30$ in \lamost\ and a reported $\chi_{r}^2 < 3$ from \tc\ \citep{ness2016,ho2017}.
 \end{enumerate} 
- 
+
 These filters identified 384 unique stars. We visually inspected every candidate (multiple times) and excluded stars that showed any evidence of being a false positive, including candidates that exhibited data reduction issues, apparent absorption that was narrower than the expected spectral resolution, as well as 75 stars that exhibited chromospheric emission at H$\alpha$, indicative of chromospheric activity consistent with being a young star that bas been misclassified as a giant. The distilled catalogue contains 112 candidate stars with spectra consistent with enhancements in K and depletions in Mg.
 
 We note that although telluric absorption would usually swamp the K doublet lines, the contributions of telluric features have been removed from \lamost\ spectra as part of the data reduction process conducted by \lamost\ \citep{luo2016vizier}. Subsequent examination of the radial velocities for the (manually vetted) sample showed no behaviour indicating that the over-absorption at potassium wavelengths were due to telluric contamination.
@@ -137,11 +237,12 @@ We note that although telluric absorption would usually swamp the K doublet line
 We estimated [K/Fe] abundance ratios for all candidates by synthesising spectra to account for the flux residuals. We adopted the data-driven stellar parameters ($T_{\rm eff}$, $\log{g}$, [Fe/H]) and estimated microturbulent velocities $v_t$ as per Eq. 7 of \citet{kirby2008}. We used plane-parallel stellar photosphere models from \citet{marcs}, and compiled a list of atomic and molecular transitions from VALD \citep{vald}. We used Spectroscopy Made Easy \citep{sme} within the \texttt{iSpec} wrapper \citep{ispec} to calculate synthetic spectra.
 
 It can be assumed that some stellar absorption is already accounted for by our data-driven model. In a sense, the data-driven model predicts a `typical' spectrum for a star with the given stellar parameters. This `typical` spectrum will include some contribution from all abundances (e.g., Mg, K, Al, Na), which is encapsulated by the overall metallicity [Fe/H]. That is to say that for a star of [Fe/H]$ = 0$, our data-driven model is predicting the spectrum of a \emph{typical} star at $[{\rm Fe/H}] = 0$, and that typical star would have $[{\rm K/Fe}] \sim 0$. We synthesise spectra to account for the flux residuals \emph{away} from the data-driven model. 
-
+%@andy
+% vt = 2.700 ? 0.509 log g km/s. (7 
 
 We assume that deviations in flux around the potassium doublet are due to an increased [K/Fe] with respect to the model. We include a conservative 0.2\,dex systematic error floor applied in quadrature with the fitting errors to account for some component of the flux differences not being from the abundance of K, but instead due to noise in the \lamost\ spectra. We applied the same method (and error floor) to estimate [Na/Fe] from \lamost\ spectra. We note that while enhancements in [K/Fe] or [Na/Fe] can be estimated by synthesising the flux residuals, we cannot estimate [Mg/Fe] depletions in the same manner because it is difficult to separate the flux contribution of [Mg/Fe] from [$\alpha$/Fe] in the data-driven model. For this reason, we will adopt [$\alpha$/Fe] as a conservative upper limit for [Mg/Fe] such that $[{\rm Mg}/{\rm Fe}] \leq [\alpha/{\rm Fe}]$.\footnote{In some sense this is by construction because we required a flux depletion around the Mg lines to identify candidates, and our data-driven model includes the effects of [$\alpha$/Fe].}
 
-
+%\todo{The presence of Na enhancements were visually estimated from the sample of 112 candidate stars' flux spectra. Flux-based estimates placed at most 40 of the 112 stars (35\%) as being likely Na enhanced targets.} Na abundances calculated from the \lamost\ spectra later revealed 30\% of the target stars with [Na/Fe] above 0.5\,dex. \todo{@andy add anything specific to Na abundance methods from LAMOST}.
 
 
 \subsection{Follow-up observations with Magellan/MIKE}
@@ -150,32 +251,36 @@ We acquired high-resolution spectra of three of our candidates as ancillary targ
 \centering
 \caption{Summary of line abundances measured from Magellan/MIKE follow-up spectra.}
 \label{data:magellan}
-\begin{tabular}{lccccc}
-\multicolumn{6}{c}{J075043.12+204658.0} \\
+\DIFdelbeginFL %DIFDELCMD < \begin{tabular}{lcccc}
+%DIFDELCMD < \multicolumn{5}{c}{J075043.12+204658.0} %%%
+\DIFdelendFL \DIFaddbeginFL \begin{tabular}{lccccc}
+\multicolumn{6}{c}{J075043.12+204658.0} \DIFaddendFL \\
 \hline
-Species & $N$ & $\log_\epsilon(\textrm{X})$ & [X/H] & [X/Fe] & $\sigma/\sqrt{N}$ \\
+Species & $N$ & $\log_\epsilon(\textrm{X})$ & [X/\DIFaddbeginFL \DIFaddFL{H}] & [\DIFaddFL{X/}\DIFaddendFL Fe] & $\sigma/\sqrt{N}$ \\
 \hline
-\ion{Fe}{I} & 82 & 6.95 & $-$0.55 &    0.00 & 0.02 \\
-\ion{Mg}{I} & 3  & 7.39 & $-$0.21 & $+$0.34 & 0.13 \\
-\ion{K}{I}  & 2  & 5.33 & $+$0.30 & $+$0.85 & 0.07 \\
-\hline
-\\
-\multicolumn{6}{c}{J091825.48+172114.5} \\
-\hline
-Species & $N$ & $\log_\epsilon(\textrm{X})$ & [X/H] & [X/Fe] & $\sigma/\sqrt{N}$ \\
-\hline
-\ion{Fe}{I} & 43 & 6.51 & $-$0.99 &    0.00 & 0.03 \\
-\ion{Mg}{I} & 5  & 6.56 & $-$1.04 & $-$0.05 & 0.08 \\
-\ion{K}{I}  & 2  & 5.32 & $+$0.29 & $+$1.28 & 0.31 \\
+\DIFaddbeginFL \ion{Fe}{I} & \DIFaddFL{82 }& \DIFaddFL{6.95 }& \DIFaddFL{$-$0.55 }&    \DIFaddFL{0.00 }& \DIFaddFL{0.02 }\\
+\DIFaddendFL \ion{Mg}{I} & 3  & 7.39 & \DIFaddbeginFL \DIFaddFL{$-$0.21 }& \DIFaddendFL $+$0.34 & 0.13 \\
+\ion{K}{I}  & 2  & 5.33 & $+$\DIFaddbeginFL \DIFaddFL{0.30 }& \DIFaddFL{$+$}\DIFaddendFL 0.85 & 0.07 \\
 \hline
 \\
-\multicolumn{6}{c}{J120032.60+024438.2} \\
+\DIFdelbeginFL %DIFDELCMD < \multicolumn{5}{c}{J091825.48+172114.5} %%%
+\DIFdelendFL \DIFaddbeginFL \multicolumn{6}{c}{J091825.48+172114.5} \DIFaddendFL \\
 \hline
-Species & $N$ & $\log_\epsilon(\textrm{X})$ & [X/H] & [X/Fe] & $\sigma/\sqrt{N}$ \\
+Species & $N$ & $\log_\epsilon(\textrm{X})$ & [X/\DIFaddbeginFL \DIFaddFL{H}] & [\DIFaddFL{X/}\DIFaddendFL Fe] & $\sigma/\sqrt{N}$ \\
 \hline
-\ion{Fe}{I} & 77 & 6.56 & $-$0.14 & 0.00 & 0.03 \\
-\ion{Mg}{I} & 4  & 6.96 & $+$0.16 & $+$0.30 & 0.09 \\
-\ion{K}{I}  & 2  & 4.96 & $+$0.72 & $+$0.86 & 0.11 \\
+\DIFaddbeginFL \ion{Fe}{I} & \DIFaddFL{43 }& \DIFaddFL{6.51 }& \DIFaddFL{$-$0.99 }&    \DIFaddFL{0.00 }& \DIFaddFL{0.03 }\\
+\DIFaddendFL \ion{Mg}{I} & 5  & 6.56 & $-$\DIFaddbeginFL \DIFaddFL{1.04 }& \DIFaddFL{$-$}\DIFaddendFL 0.05 & 0.08 \\
+\ion{K}{I}  & 2  & 5.32 & $+$\DIFaddbeginFL \DIFaddFL{0.29 }& \DIFaddFL{$+$}\DIFaddendFL 1.28 & 0.31 \\
+\hline
+\\
+\DIFdelbeginFL %DIFDELCMD < \multicolumn{5}{c}{J120032.60+024438.2} %%%
+\DIFdelendFL \DIFaddbeginFL \multicolumn{6}{c}{J120032.60+024438.2} \DIFaddendFL \\
+\hline
+Species & $N$ & $\log_\epsilon(\textrm{X})$ & [X/\DIFaddbeginFL \DIFaddFL{H}] & [\DIFaddFL{X/}\DIFaddendFL Fe] & $\sigma/\sqrt{N}$ \\
+\hline
+\DIFaddbeginFL \ion{Fe}{I} & \DIFaddFL{77 }& \DIFaddFL{6.56 }& \DIFaddFL{$-$0.14 }& \DIFaddFL{0.00 }& \DIFaddFL{0.03 }\\
+\DIFaddendFL \ion{Mg}{I} & 4  & 6.96 & $+$\DIFaddbeginFL \DIFaddFL{0.16 }& \DIFaddFL{$+$}\DIFaddendFL 0.30 & 0.09 \\
+\ion{K}{I}  & 2  & 4.96 & $+$\DIFaddbeginFL \DIFaddFL{0.72 }& \DIFaddFL{$+$}\DIFaddendFL 0.86 & 0.11 \\
 \hline
 \end{tabular}
 \end{table}
@@ -288,7 +393,9 @@ In this section, we describe the abundance trends evident from the \lamost\ and 
     \caption{[Na/Fe] vs radial velocity for the candidate stars.}
     \label{Navsradvel}
 \end{subfigure}
-
+%\end{figure*}
+%\begin{figure*}
+%\ContinuedFloat
 
 \caption{A strong bimodality in [Na/Fe] abundances of the candidate stars is observed, with a significant population displaying anomolously high abundances. Due to the apparent near-exclusivity of this population within the disk of the galaxy, and their notably higher E(B-V) values \citep{schlafly2011}, this phenomena is almost certainly due to interstellar dust.}
 \end{figure}
@@ -297,24 +404,26 @@ In this section, we describe the abundance trends evident from the \lamost\ and 
 The modelling work of \cite{prantzos2017} predicted an anti-correlation between Na and K which could result from a 180\,MK hydrogen burning environment, while observational data for NGC 2808 implies a positive correlation between Na and K. Upon examining the [Na/Fe] abundance ratios we estimated from \lamost\ spectra of our candidates, based on the doublet around 5850 \AA, we observed two distinct populations: one population making up approximately 30 percent of the sample with [Na/Fe] $> 0.5$, significantly higher than typical Galactic abundances of [Na/Fe] $\lesssim$ 0.3 \citep{kobayashi2011}, and a second population with [Na/Fe] abundance ratios consistent with typical Galactic levels. The two groups can be clearly distinguished in Figure \ref{NavsFeh}, where for comparison we also show the abundances of [Na/Fe] versus [Fe/H] from the \apogee\ survey.
 
 However, we concluded that the high [Na/Fe] abundance ratios we derive are likely due to interstellar dust contributing. Nearly every star with apparently enriched [Na/Fe] showed notably higher E(B-V) \citep{schlafly2011}, and all but four stars with high [Na/Fe] are found in the disk of our Galaxy, at low absolute galactic latitudes and velocities (Figures \ref{Navsb} and \ref{Navsradvel}). Thus, we find no evidence for genuine  enhancement of [Na/Fe] among our Mg--K candidates.
-
+%suggesting that the stellar absorption lines are blended with interstellar dust absorption. This is supported by Figures \ref{Navsb} and \ref{Navsradvel}, which show the [Na/Fe] distribution with respect to galactic latitude and the radial velocity. 
+%It is apparent that almost all of the stars in the anomalous group lie close to the disk of the galaxy, with radial velocities at least somewhat close to zero.
+%However, further investigation revealed no evidence of a diffuse interstellar band (DIB) impacting LAMOST spectra around the Na doublet (nor around the Mg or K lines).
 
 
 \subsubsection{[Mg/Fe] and [K/Fe]}
 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{KvsMg.png}
-    \caption{[K/Fe] vs [$\alpha$/Fe] for the candidate stars, overlaid with [K/Fe] vs [Mg/Fe] abundances for NGC 2419 and NGC 2808 \citep{cohenkirby2012, mucciarelli2012, mucciarelli2015} as well as the three candidates observed using Magellan/MIKE (red diamonds). These three stars' abundances as per the \lamost\ spectra are indicated in the figure (red circles). Note that in principle, [$\alpha$/Fe] acts only as an upper limit for [Mg/Fe] and is used as such for our sample in this figure due to difficulties in calculating reliable [Mg/Fe] from \lamost\ data.}
+    \caption{[K/Fe] vs [$\alpha$/Fe] for the candidate stars, overlaid with [K/Fe] vs [Mg/Fe] abundances for NGC 2419 and NGC 2808 \citep{cohenkirby2012, mucciarelli2012, mucciarelli2015} \DIFaddbeginFL \DIFaddFL{as well as the three candidates observed using Magellan/MIKE (red diamonds)}\DIFaddendFL . \DIFaddbeginFL \DIFaddFL{These three stars' abundances as per the \lamost\ spectra are indicated in the figure (red circles). }\DIFaddendFL Note that in principle, [$\alpha$/Fe] acts only as an upper limit for [Mg/Fe] \DIFdelbeginFL \DIFdelFL{, }\DIFdelendFL and is used as such for our sample in this figure due to difficulties in calculating reliable [Mg/Fe] from \lamost\DIFaddbeginFL \DIFaddFL{\ }\DIFaddendFL data.}
     \label{KvsMg}
 \end{figure}
-
+ %See Section \ref{sec:method} for discussion on the use of [$\alpha$/Fe] as a proxy for [Mg/Fe].} 
 \begin{figure}
 	\includegraphics[width=\columnwidth]{KvsFe.png}
-    \caption{[K/Fe] vs [Fe/H] for the candidate stars, overlaid with [K/Fe] vs [Fe/H] for NGC 2419 and NGC 2808 \citep{cohenkirby2012, mucciarelli2012, mucciarelli2015}. The linear regression formula is \textrm{[K/Fe]$=-0.21 \times$[Fe/H]$+0.97$, with r$^2$=0.37}.}
+    \caption{[K/Fe] vs [Fe/H] for the candidate stars, overlaid with [K/Fe] vs [Fe/H] for NGC 2419 and NGC 2808 \citep{cohenkirby2012, mucciarelli2012, mucciarelli2015}. \DIFaddbeginFL \DIFaddFL{The linear regression formula is }\textrm{[\DIFaddFL{K/Fe}]\DIFaddFL{$=-0.21 \times$}[\DIFaddFL{Fe/H}]\DIFaddFL{$+0.97$, with r$^2$=0.37}}\DIFaddFL{.}\DIFaddendFL }
     \label{KvsFe}
 \end{figure}
 
-Figure \ref{KvsMg} shows [K/Fe]  for the 112 star sample plotted against $[\alpha$/Fe] and overlaid with [K/Fe] from NGC 2419 and NGC 2808 plotted against [Mg/Fe] \citep{cohenkirby2012, mucciarelli2012, mucciarelli2015}. As described in Section \ref{sec:method}, we are forced to adopt [$\alpha$/Fe] as an upper limit for [Mg/Fe] for our sample stars as we are unable to estimate [Mg/Fe] from the LAMOST spectra. [K/Fe] vs [Mg/Fe] for the three stars from the sample observed using Magellan/MIKE and for over 60000 stars from APOGEE \citep{alam2015} is also shown. The \lamost\ abundances for the three stars observed by Magellan are also shown (red circles). We note that [K/Fe] for the candidate stars is generally lower than that of the Mg-depleted population in NGC 2419, but higher than that of the Mg-normal population. The [K/Fe] level for the candidates estimated by \lamost\ is significantly higher than the [K/Fe] abundances in NGC 2808.
+Figure \ref{KvsMg} shows [K/Fe]  for the 112 star sample plotted against $[\alpha$/Fe] and overlaid with [K/Fe] from NGC 2419 and NGC 2808 plotted against [Mg/Fe] \citep{cohenkirby2012, mucciarelli2012, mucciarelli2015}. As described in Section \ref{sec:method}, we are forced to adopt [$\alpha$/Fe] as an upper limit for [Mg/Fe] for our sample stars as we are unable to estimate [Mg/Fe] from the LAMOST spectra. [K/Fe] vs [Mg/Fe] for the three stars from the sample observed using Magellan/MIKE and for over 60000 stars from APOGEE \citep{alam2015} is also shown. \DIFaddbegin \DIFadd{The \lamost\ abundances for the three stars observed by Magellan are also shown (red circles). }\DIFaddend We note that [K/Fe] for the candidate stars is generally lower than that of the Mg-depleted population in NGC 2419, but higher than that of the Mg-normal population. The [K/Fe] level for the candidates estimated by \lamost\ is significantly higher than the [K/Fe] abundances in NGC 2808.
 
 Abundance ratios of [$\alpha$/Fe] in our sample fall within the lower limits for [Mg/Fe] of the Mg-normal population of both NGC 2419 and NGC 2808, although as we are unable to decouple [Mg/Fe] from $[\alpha$/Fe], the exact level of Mg depletion of the candidates is unclear. The [Mg/Fe] abundances derived from Magellan/MIKE's high resolution spectra are consistent with the Mg-normal population in NGC 2419. However, the \lamost\ spectral flux residuals with \tc\ model indicate an under-abundance of Mg relative to a 'typical' star in our sample of \lamost\ giants. The small sample of stars for which we have high resolution spectra, coupled with the conflict with the \lamost\ spectra, means we are unable to confidently make a statement regarding the level of [Mg/Fe] in our entire sample of 112 stars.
 
@@ -335,6 +444,7 @@ However, we repeat that the sample of \lamost\ giants  we searched had already b
 
 If we allow a brief venture into the realm of speculation, the trend of [K/Fe] with iron may also provide a clue to the question of [Mg/Fe] abundances. While K is quite difficult to form, Mg is far more common. If we imagine that a cloud of gas formed with NGC 2419-like abundances of [Mg/Fe], [K/Fe], and [Fe/H] then we might expect that over time [Mg/Fe] would quickly approach typical galactic levels, as Mg is produced in large quantities and the cloud is enriched. However, the anomalously high level of [K/Fe] would vary only with increasing metallicity and therefore remain detectable in stars that formed from the cloud for far longer.
 
+%Significantly enhanced [K/Fe] is rare; significantly enhanced [K/Fe] without an accompanying depletion of [Mg/Fe] is unknown. The candidate stars are also spread across a wide range of metallicities.
 
 A recent attempt to replicate the Mg--K abundance signature in NGC 2419 by \cite{iliadis2016} also examined abundances of Si, Sc, Ca, Ti and V, elements reported as having weak correlations with Mg by \cite{cohenkirby2012}. The study aimed to constrain the temperatures and densities required to produce the chemical signature, and thereby provide insight into potential polluters.
 Unless extremely high densities were invoked (i.e., $>\,10^8\,{\rm g\,cm}^{-3}$), it was found that temperatures between 100 and 200\,MK (depending on the density) were necessary to produce sufficient K to match the abundances observed. This constraint rules out many pollution sites, including core and shell burning of low-mass stars, high-mass and super-massive stars, and normal AGB stars. However, super-AGB (SAGB) stars were considered as potential candidates, with only a relatively small (roughly 10 to 20 MK) increase in temperature at the bottom of the envelope required to fall in the acceptable band of parameter space identified, implying that it is possible that the conditions for K production through the Ar-K reaction pathway could be met in some SAGB stars. The other potential candidates identified were novae, although the lack of detailed models of white dwarf accretion of metal-poor material adds considerable uncertainty. Based on current nova frequency in globular clusters determined by \cite{kato2013novae}, \cite{iliadis2016} conclude that the amount of material that would be produced by novae is at most 1 percent of the total required mass to pollute 30 percent of NGC 2419.
@@ -350,28 +460,49 @@ One possible polluter that \textit{could} form throughout the life of the Milky 
 We hypothesise that a SAGB-binary system may produce a [K/Fe] over-abundance in some stars within the Milky Way as follows. The SAGB star produces K \citep[destroying Na in the process;][]{prantzos2017}, that is then mixed throughout the star's envelope. The SAGB star then deposits its K-rich outer layers onto its lower-mass companion through accreting winds. The lower-mass companion continues to evolve long after the SAGB star has formed a white-dwarf remnant and, depending on its mass after accretion, either undergoes hot-bottom burning or, more likely, does not. If the companion star had sufficient mass to undergo hot-bottom burning, then Na could be produced \citep{prantzos2017} at the expense of Ne. Further, depending on the HBB temperature, the AGB star may also deplete Mg through Mg--Al chains. The material produced through HBB is mixed throughout the envelope including the surface of the star. In this scenario, it is the lower-mass binary companion stars that make up our sample of 112 giants. A direct test would be to determine whether the candidates are binaries with O-Ne white dwarf remnant companions, which would indicate that they formed from SAGB stars.
 
 
+%Certainly the idea that both groups of anomalous stars arise from the same polluter source ought to be entertained.
+
+%\todo{However, beyond the question of whether the [K/Fe]-[Fe/H] anti-correlation is real or not, the extreme difficulty of forming a cloud of Mg-depleted, K enriched material in the first place must be emphasized. Indeed, if we assume the primordial abundances (pre-mystery event) are similar to those of NGC 2419's Mg-normal population, then it is impossible. If the primordial cloud already has [Mg/Fe]$\approx 0.5$, to reduce this necessitates the addition of large amounts of iron rich material that is also very depleted in [Mg/Fe]. But as soon significant amounts of iron are added, [Fe/H] for the subsequent Mg-depleted population should increase, while no significant [Fe/H] variation between the two populations is observed \citep{cohenkirby2012, mucciarelli2012}. This implies that the mystery polluter star may have released its material into an environment enriched only by Big-Bang Nucleosynthesis (BBNS)}
+
+%\todo{One major issue facing this explanation is that it requires a single gas cloud to form many generations of stars almost continuously in order to be consistent with Figure \ref{KvsFe}. This is only known to occur in inside true galaxies, which are massive enough to form multiple star forming regions. Allowing the candidate stars to have originated in a dwarf Galaxy which later merged with the Milky Way introduces many issues. The required mass to be polluted by the mystery object increases drastically, implying multiple pollution events. But invoking multiple pollution events means that the rarity of the signal is harder to explain: if it happened multiple times within a single dwarf Galaxy, why not in other places? Further, a merger should result in stars with highly elliptical orbits, while the candidates identified appear to be disk stars.}
+
+%\todo{More generally, the [K/Fe]-[Fe/H] relation we observed is supportive of the origin of the Mg--K anti-correlation being temporally confined to an early epoch in the evolution of galaxies and globular clusters. However, this is not necessarily the only interpretation. For example, it could be that the K forming process is happening throughout the life of the Galaxy, but the amount of K produced decreases with the metallicity of the polluter star, though there is no obvious reason why this would be the case.}
+
+
+
+%An intriguing anti-correlation between [K/Fe] and [Fe/H] is observed, although whether or not this relation is physical remains uncertain without further higher resolution observations of the candidates. Further high resolution observations will also allow Mg and other elemental abundances to be determined.
+
+%Upon conducting an abundance analysis, anomalously high levels of K were found in the sample, with levels of [K/Fe] as high as 1.5 confirmed through high resolution spectroscopy using Magellan/MIKE. The [K/Fe] abundances were not consistent with the extreme populations previsously identified in either NGC 2419 or NGC 2808. No conclusion can be reached regarding the presence of [Mg/Fe] depletions in the sample as [Mg/Fe] abundances were unable to be determined from the \lamost\ spectra.
 
 
 \section*{Acknowledgements}
 We thank David W. Hogg (NYU), and Hans-Walter Rix (MPIA).
+%- Magellan/MIKE and Australian government
 ARC is supported through an Australian Research Council Discovery Project under grant DP160100637.
 AYQH is supported by a Fulbright grant through the German-American Fulbright Commission and a National Science Foundation Graduate Research Fellowship under Grant No. DGE-1144469. 
 CAT thanks Churchill College for his fellowship and Monash University for hosting him as a Kevin Westfold distinguished visitor.
 This research has made use of NASA's Astrophysics Data System.
 Guoshoujing Telescope (the Large Sky Area Multi-Object Fiber Spectroscopic Telescope LAMOST) is a National Major Scientific Project built by the Chinese Academy of Sciences. Funding for the project has been provided by the National Development and Reform Commission. LAMOST is operated and managed by the National Astronomical Observatories, Chinese Academy of Sciences.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%
+
+% The best way to enter references is to use BibTeX:
 
 \bibliographystyle{mnras}
-\bibliography{mgkbib}
+\bibliography{mgkbib} % if your bibtex file is called example.bib
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%% APPENDICES %%%%%%%%%%%%%%%%%%%%%
 
 \appendix
 
 \section{Additional atomic line abundances from Magellan/MIKE}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{table*}
 \centering
@@ -405,25 +536,25 @@ Species & $\lambda$ & $\chi$ & $\log{gf}$ & E.W. & $\log_\epsilon(\textrm{X})$ &
 \hline
 \textbf{2MASSID} & \textbf{RA} & \textbf{DEC} & \textbf{S/N} & \textbf{V$_\textrm{r}$} & \textbf{T$_\textrm{eff}$} & $\boldsymbol \log{ \, \textbf{g}}$ & \textbf{{[}Fe/H{]}} & \textbf{{[}$\alpha$/Fe{]}} & \textbf{$\boldsymbol \chi_r ^\textbf{2}$} & \textbf{{[}K/Fe{]}} & \textbf{Error} & \textbf{{[}Na/Fe{]}} & \textbf{Error} \\ 
 - & {[}deg{]} & {[}deg{]} & [pixel$^{-1}]$ & {[${\rm km\,s}^{-1}$]} & {[}K{]} & $[{\rm cm\,s}^{-2}]$ & {[}dex{]} & {[}dex{]} & - & {[}dex{]} & {[}dex{]} & {[}dex{]} & {[}dex{]} \\ \hline
-J000908.89+124821.9 & 2.2871 & 12.8061 & 10 & -78.55 & 4892 & 2.82 & -0.12 & 0.33 & 0.19 & 1.08 & 0.26 & 0.86 & 0.23 \\
-J002619.36+565612.1 & 6.5807 & 56.9367 & 31 & -39.57 & 4205 & 1.49 & 0.22 & 0.06 & 0.76 & 0.62 & 0.22 & 0.39 & 0.22 \\
-J002907.61+354701.0 & 7.2817 & 35.7836 & 15 & -82.74 & 5116 & 3.56 & 0.24 & 0.17 & 0.18 & 1.01 & 0.21 & -0.20 & 0.20 \\
-J003451.10+424543.0 & 8.7130 & 42.7620 & 15 & -79.15 & 4460 & 2.10 & -0.56 & 0.24 & 0.31 & 0.96 & 0.33 & -0.16 & 0.20 \\
-J005649.98+391722.9 & 14.2083 & 39.2897 & 41 & -46.77 & 4578 & 2.67 & 0.31 & 0.1 & 0.44 & 0.76 & 0.23 & -0.02 & 0.20 \\
-J010305.95+043445.9 & 15.7748 & 4.5794 & 90 & 20.69 & 4646 & 2.72 & 0.1 & 0.05 & 1.17 & 0.95 & 0.21 & -0.07 & 0.20 \\
-J011949.36+063411.4 & 19.9557 & 6.5699 & 479 & -28.18 & 4820 & 2.61 & -0.29 & 0.09 & 2.38 & 1.03 & 0.20 & -0.04 & 0.20 \\
-J013039.08+404843.8 & 22.6628 & 40.8122 & 71 & -80.34 & 4355 & 2.01 & -0.09 & 0.14 & 0.93 & 0.92 & 0.21 & 0.46 & 0.21 \\
-J030101.42+560042.3 & 45.2560 & 56.0118 & 88 & -39.27 & 4878 & 2.53 & -0.32 & 0.09 & 0.67 & 1 & 8.70 & -0.02 & 0.20 \\
-J032423.46+425429.6 & 51.0978 & 42.9082 & 23 & -56.74 & 4649 & 2.63 & -0.11 & -0.01 & 0.34 & 1.12 & 0.22 & 0.80 & 0.20 \\ \hline
+J000908.89+124821.9 & \DIFdelbeginFL \DIFdelFL{2.29 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{2.2871 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{12.81 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{12.8061 }\DIFaddendFL & 10 & -78.55 & 4892 & 2.82 & -0.12 & 0.33 & 0.19 & 1.08 & 0.26 & 0.86 & 0.23 \\
+J002619.36+565612.1 & \DIFdelbeginFL \DIFdelFL{6.58 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{6.5807 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{56.94 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{56.9367 }\DIFaddendFL & 31 & -39.57 & 4205 & 1.49 & 0.22 & 0.06 & 0.76 & 0.62 & 0.22 & 0.39 & 0.22 \\
+J002907.61+354701.0 & \DIFdelbeginFL \DIFdelFL{7.28 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{7.2817 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{35.78 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{35.7836 }\DIFaddendFL & 15 & -82.74 & 5116 & 3.56 & 0.24 & 0.17 & 0.18 & 1.01 & 0.21 & -0.20 & 0.20 \\
+J003451.10+424543.0 & \DIFdelbeginFL \DIFdelFL{8.71 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{8.7130 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{42.76 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{42.7620 }\DIFaddendFL & 15 & -79.15 & 4460 & 2.10 & -0.56 & 0.24 & 0.31 & 0.96 & 0.33 & -0.16 & 0.20 \\
+J005649.98+391722.9 & \DIFdelbeginFL \DIFdelFL{14.21 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{14.2083 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{39.29 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{39.2897 }\DIFaddendFL & 41 & -46.77 & 4578 & 2.67 & 0.31 & 0.1 & 0.44 & 0.76 & 0.23 & -0.02 & 0.20 \\
+J010305.95+043445.9 & \DIFdelbeginFL \DIFdelFL{15.77 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{15.7748 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{4.58 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{4.5794 }\DIFaddendFL & 90 & 20.69 & 4646 & 2.72 & 0.1 & 0.05 & 1.17 & 0.95 & 0.21 & -0.07 & 0.20 \\
+J011949.36+063411.4 & \DIFdelbeginFL \DIFdelFL{19.96 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{19.9557 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{6.57 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{6.5699 }\DIFaddendFL & 479 & -28.18 & 4820 & 2.61 & -0.29 & 0.09 & 2.38 & 1.03 & 0.20 & -0.04 & 0.20 \\
+J013039.08+404843.8 & \DIFdelbeginFL \DIFdelFL{22.66 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{22.6628 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{40.81 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{40.8122 }\DIFaddendFL & 71 & -80.34 & 4355 & 2.01 & -0.09 & 0.14 & 0.93 & 0.92 & 0.21 & 0.46 & 0.21 \\
+J030101.42+560042.3 & \DIFdelbeginFL \DIFdelFL{45.26 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{45.2560 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{56.01 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{56.0118 }\DIFaddendFL & 88 & -39.27 & 4878 & 2.53 & -0.32 & 0.09 & 0.67 & 1 & 8.70 & -0.02 & 0.20 \\
+J032423.46+425429.6 & \DIFdelbeginFL \DIFdelFL{51.1 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{51.0978 }\DIFaddendFL & \DIFdelbeginFL \DIFdelFL{42.91 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{42.9082 }\DIFaddendFL & 23 & -56.74 & 4649 & 2.63 & -0.11 & -0.01 & 0.34 & 1.12 & 0.22 & 0.80 & 0.20 \\ \hline
 \end{tabular}
 \end{table*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
-
-
-\bsp	
+% Don't change these lines
+\bsp	% typesetting comment
 \label{lastpage}
 \end{document}
 
-
+% End of mnras_template.tex
