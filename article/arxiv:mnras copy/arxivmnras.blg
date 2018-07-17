@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2017)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: arxivmnras.aux
+The style file: mnras.bst
+Database file #1: mgkbib.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 27 entries,
+            2881 wiz_defined-function locations,
+            899 strings with 11789 characters,
+and the built_in function-call counts, 13034 in all, are:
+= -- 1012
+> -- 1008
+< -- 66
++ -- 440
+- -- 160
+* -- 1514
+:= -- 2103
+add.period$ -- 0
+call.type$ -- 27
+change.case$ -- 54
+chr.to.int$ -- 27
+cite$ -- 27
+duplicate$ -- 633
+empty$ -- 642
+format.name$ -- 242
+if$ -- 2250
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 25
+newline$ -- 94
+num.names$ -- 192
+pop$ -- 137
+preamble$ -- 1
+purify$ -- 108
+quote$ -- 0
+skip$ -- 394
+stack$ -- 0
+substring$ -- 697
+swap$ -- 340
+text.length$ -- 110
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 243
+warning$ -- 0
+while$ -- 204
+width$ -- 0
+write$ -- 283
